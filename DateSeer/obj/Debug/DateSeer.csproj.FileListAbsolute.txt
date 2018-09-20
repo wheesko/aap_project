@@ -1,0 +1,12 @@
+C:\Users\Ainis\source\repos\DateSeer\DateSeer\bin\Debug\DateSeer.exe.config
+C:\Users\Ainis\source\repos\DateSeer\DateSeer\bin\Debug\DateSeer.exe
+C:\Users\Ainis\source\repos\DateSeer\DateSeer\bin\Debug\DateSeer.pdb
+C:\Users\Ainis\source\repos\DateSeer\DateSeer\obj\Debug\DateSeer.csprojAssemblyReference.cache
+C:\Users\Ainis\source\repos\DateSeer\DateSeer\obj\Debug\DateSeer.Properties.Resources.resources
+C:\Users\Ainis\source\repos\DateSeer\DateSeer\obj\Debug\DateSeer.csproj.GenerateResource.cache
+C:\Users\Ainis\source\repos\DateSeer\DateSeer\obj\Debug\DateSeer.csproj.CoreCompileInputs.cache
+C:\Users\Ainis\source\repos\DateSeer\DateSeer\obj\Debug\DateSeer.exe
+C:\Users\Ainis\source\repos\DateSeer\DateSeer\obj\Debug\DateSeer.pdb
+C:\Users\Ainis\source\repos\DateSeer\DateSeer\obj\Debug\DateSeer.Main.resources
+C:\Users\Ainis\source\repos\DateSeer\DateSeer\obj\Debug\DateSeer.Login.resources
+C:\Users\Ainis\source\repos\DateSeer\DateSeer\obj\Debug\DateSeer.Register.resources
