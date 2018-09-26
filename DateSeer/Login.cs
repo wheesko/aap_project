@@ -83,22 +83,29 @@ namespace DateSeer
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            List<SqlParameter> sqlParams = new List<SqlParameter>();
-            sqlParams.Add(new SqlParameter("Username", UsernameTextBox.Text));
-            sqlParams.Add(new SqlParameter("Password", PasswordTextBox.Text));
-
-            DataTable dtLoginResults = DAL.executeStoredProcedure("ValidateLogin", sqlParams);
-
-            if (dtLoginResults.Rows.Count == 1)
+            if (UsernameTextBox.Text != "" && PasswordTextBox.Text != "")
             {
-                MessageBox.Show("Logged in");
-                this.Hide();
-                Main main = new Main();
-                main.Show();
+                List<SqlParameter> sqlParams = new List<SqlParameter>();
+                sqlParams.Add(new SqlParameter("Username", UsernameTextBox.Text));
+                sqlParams.Add(new SqlParameter("Password", PasswordTextBox.Text));
+
+                DataTable dtLoginResults = DAL.executeStoredProcedure("ValidateLogin", sqlParams);
+
+                if (dtLoginResults.Rows.Count == 1)
+                {
+                    MessageBox.Show("Logged in");
+                    this.Hide();
+                    Main main = new Main();
+                    main.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Invalid login");
+                }
             }
             else
             {
-                MessageBox.Show("Invalid login");
+                MessageBox.Show("Empty username or password field");
             }
         }
 
