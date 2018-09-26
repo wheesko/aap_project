@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -36,11 +37,39 @@ namespace DateSeer
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(textBox1.Text) || String.IsNullOrWhiteSpace(textBox1.Text))
+            List<SqlParameter> sqlParams = new List<SqlParameter>();
+            List<SqlParameter> checkParams = new List<SqlParameter>();
+
+            checkParams.Add(new SqlParameter("Username", textBox3.Text));
+            checkParams.Add(new SqlParameter("Email", textBox2.Text));
+            if (DAL.executeStoredProcedure("GetByEmailOrUsername", checkParams).Rows.Count == 0){
+                if (textBox4.Text == textBox5.Text)
+                {
+                    sqlParams.Add(new SqlParameter("Name", textBox1.Text));
+                    sqlParams.Add(new SqlParameter("Email", textBox2.Text));
+                    sqlParams.Add(new SqlParameter("Username", textBox3.Text));
+                    sqlParams.Add(new SqlParameter("Password", textBox4.Text));
+                    textBox1.Text = "";
+                    textBox2.Text = "";
+                    textBox3.Text = "";
+                    textBox4.Text = "";
+                    textBox5.Text = "";
+                    DAL.executeStoredProcedure("AddUser", sqlParams);
+                }
+                else
+                {
+                    textBox4.Text = "";
+                    textBox5.Text = "";
+                    MessageBox.Show("Passwords did not match");
+                }
+            }
+            else
             {
-                this.Hide();
-                Login Loginback = new Login();
-                Loginback.Show();
+                textBox2.Text = "";
+                textBox3.Text = "";
+                textBox4.Text = "";
+                textBox5.Text = "";
+                MessageBox.Show("Email or Username already taken");
             }
         }
 
@@ -60,6 +89,11 @@ namespace DateSeer
         }
 
         private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
