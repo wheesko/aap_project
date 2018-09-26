@@ -97,5 +97,10 @@ namespace DateSeer
         {
 
         }
+
+        private void Register_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

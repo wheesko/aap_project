@@ -38,8 +38,6 @@ namespace DateSeer
 
             List<SqlParameter> sqlParams = new List<SqlParameter>();
 
-            this.Close();
-
 
         }
 
@@ -94,6 +92,9 @@ namespace DateSeer
             if (dtLoginResults.Rows.Count == 1)
             {
                 MessageBox.Show("Logged in");
+                this.Hide();
+                Main main = new Main();
+                main.Show();
             }
             else
             {
@@ -113,5 +114,9 @@ namespace DateSeer
 
         }
 
+        private void Login_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
     }
