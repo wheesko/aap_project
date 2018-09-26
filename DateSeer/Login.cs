@@ -18,57 +18,47 @@ namespace DateSeer
             InitializeComponent();
         }
 
-        private void label4_Click(object sender, EventArgs e)
+        private void Label4_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void Label2_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void Label3_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
-            /*
-            Čia turėtų būt su duombaze kodas kad tikrintų ar yra duombazėj toks username ir pass
-            Jei yra padaro this.Close(); manau reikia daryti dėl to kad resursų mažiau naudotų resursu
 
-
-
-
-            Reikia sutvarkyti problema su kad kai switchini win formas tada neveikia viršui dešnėj
-            esantis exit mygtukas nes jis uždaro tik viena win forma o kitu neuzdaro 
-
-
-            */
+            List<SqlParameter> sqlParams = new List<SqlParameter>();
 
             this.Close();
 
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Button2_Click(object sender, EventArgs e)
         {
 
-            this.Hide() ;
+            this.Hide();
             Register reg = new Register();
             reg.Region = this.Region;
             reg.Show();
-        
+
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
+        private void TextBox2_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void Button3_Click(object sender, EventArgs e)
         {
 
         }
@@ -77,7 +67,51 @@ namespace DateSeer
         {
 
         }
-    }
 
-        
-}
+        private void TextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void UsernameTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PasswordTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LoginButton_Click(object sender, EventArgs e)
+        {
+            List<SqlParameter> sqlParams = new List<SqlParameter>();
+            sqlParams.Add(new SqlParameter("Username", UsernameTextBox.Text));
+            sqlParams.Add(new SqlParameter("Password", PasswordTextBox.Text));
+
+            DataTable dtLoginResults = DAL.executeStoredProcedure("ValidateLogin", sqlParams);
+
+            if (dtLoginResults.Rows.Count == 1)
+            {
+                MessageBox.Show("Logged in");
+            }
+            else
+            {
+                MessageBox.Show("Invalid login");
+            }
+        }
+
+        private void RegisterButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form form = new Register();
+            form.Show();
+        }
+
+        private void FacebookButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+    }
+    }
