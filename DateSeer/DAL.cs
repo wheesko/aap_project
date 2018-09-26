@@ -12,7 +12,7 @@ namespace DateSeer
     {
         public static DataTable executeStoredProcedure(string spName, List<SqlParameter> sqlParams = null){
 
-            string strConn = "Server=DESKTOP-39HKRUP\\SQLEXPRESS;Database=Login_data;Trusted_Connection=True";
+            string strConn = "Server=DESKTOP-35QGRNJ\\SQLEXPRESS;Database=Login_data;Trusted_Connection=True";
 
             SqlConnection conn = new SqlConnection();
 
