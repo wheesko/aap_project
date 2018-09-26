@@ -21,5 +21,10 @@ namespace DateSeer
         {
 
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

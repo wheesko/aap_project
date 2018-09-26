@@ -38,7 +38,9 @@ namespace DateSeer
 
             List<SqlParameter> sqlParams = new List<SqlParameter>();
 
-            this.Close();
+            this.Hide();
+            Main main = new Main();
+            main.Show();
 
 
         }
@@ -113,5 +115,9 @@ namespace DateSeer
 
         }
 
+        private void Login_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
     }
