@@ -37,39 +37,48 @@ namespace DateSeer
 
         private void button1_Click(object sender, EventArgs e)
         {
-            List<SqlParameter> sqlParams = new List<SqlParameter>();
-            List<SqlParameter> checkParams = new List<SqlParameter>();
+            if (textBox1.Text != "" && textBox2.Text != "" && textBox3.Text != "" && textBox4.Text != "" && textBox5.Text != "")
+            {
+                List<SqlParameter> sqlParams = new List<SqlParameter>();
+                List<SqlParameter> checkParams = new List<SqlParameter>();
 
-            checkParams.Add(new SqlParameter("Username", textBox3.Text));
-            checkParams.Add(new SqlParameter("Email", textBox2.Text));
-            if (DAL.executeStoredProcedure("GetByEmailOrUsername", checkParams).Rows.Count == 0){
-                if (textBox4.Text == textBox5.Text)
+                checkParams.Add(new SqlParameter("Username", textBox3.Text));
+                checkParams.Add(new SqlParameter("Email", textBox2.Text));
+                if (DAL.executeStoredProcedure("GetByEmailOrUsername", checkParams).Rows.Count == 0)
                 {
-                    sqlParams.Add(new SqlParameter("Name", textBox1.Text));
-                    sqlParams.Add(new SqlParameter("Email", textBox2.Text));
-                    sqlParams.Add(new SqlParameter("Username", textBox3.Text));
-                    sqlParams.Add(new SqlParameter("Password", textBox4.Text));
-                    textBox1.Text = "";
+                    if (textBox4.Text == textBox5.Text)
+                    {
+                        sqlParams.Add(new SqlParameter("Name", textBox1.Text));
+                        sqlParams.Add(new SqlParameter("Email", textBox2.Text));
+                        sqlParams.Add(new SqlParameter("Username", textBox3.Text));
+                        sqlParams.Add(new SqlParameter("Password", textBox4.Text));
+                        textBox1.Text = "";
+                        textBox2.Text = "";
+                        textBox3.Text = "";
+                        textBox4.Text = "";
+                        textBox5.Text = "";
+                        DAL.executeStoredProcedure("AddUser", sqlParams);
+                        MessageBox.Show("Registration complete");
+                    }
+                    else
+                    {
+                        textBox4.Text = "";
+                        textBox5.Text = "";
+                        MessageBox.Show("Passwords did not match");
+                    }
+                }
+                else
+                {
                     textBox2.Text = "";
                     textBox3.Text = "";
                     textBox4.Text = "";
                     textBox5.Text = "";
-                    DAL.executeStoredProcedure("AddUser", sqlParams);
-                }
-                else
-                {
-                    textBox4.Text = "";
-                    textBox5.Text = "";
-                    MessageBox.Show("Passwords did not match");
+                    MessageBox.Show("Email or Username already taken");
                 }
             }
             else
             {
-                textBox2.Text = "";
-                textBox3.Text = "";
-                textBox4.Text = "";
-                textBox5.Text = "";
-                MessageBox.Show("Email or Username already taken");
+                MessageBox.Show("Some fields are empty");
             }
         }
 
