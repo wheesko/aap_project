@@ -38,10 +38,6 @@ namespace DateSeer
 
             List<SqlParameter> sqlParams = new List<SqlParameter>();
 
-            this.Hide();
-            Main main = new Main();
-            main.Show();
-
 
         }
 
@@ -96,6 +92,9 @@ namespace DateSeer
             if (dtLoginResults.Rows.Count == 1)
             {
                 MessageBox.Show("Logged in");
+                this.Hide();
+                Main main = new Main();
+                main.Show();
             }
             else
             {
