@@ -46,3 +46,15 @@ C:\Users\n01\Desktop\New folder (2)\aap_project\DateSeer\obj\Debug\DateSeer.cspr
 C:\Users\n01\Desktop\New folder (2)\aap_project\DateSeer\obj\Debug\DateSeer.csproj.CoreCompileInputs.cache
 C:\Users\n01\Desktop\New folder (2)\aap_project\DateSeer\obj\Debug\DateSeer.exe
 C:\Users\n01\Desktop\New folder (2)\aap_project\DateSeer\obj\Debug\DateSeer.pdb
+C:\Users\Ainis\source\repos\aap_project\DateSeer\bin\Debug\DateSeer.exe.config
+C:\Users\Ainis\source\repos\aap_project\DateSeer\bin\Debug\DateSeer.exe
+C:\Users\Ainis\source\repos\aap_project\DateSeer\bin\Debug\DateSeer.pdb
+C:\Users\Ainis\source\repos\aap_project\DateSeer\obj\Debug\DateSeer.csprojAssemblyReference.cache
+C:\Users\Ainis\source\repos\aap_project\DateSeer\obj\Debug\DateSeer.Login.resources
+C:\Users\Ainis\source\repos\aap_project\DateSeer\obj\Debug\DateSeer.Main.resources
+C:\Users\Ainis\source\repos\aap_project\DateSeer\obj\Debug\DateSeer.Properties.Resources.resources
+C:\Users\Ainis\source\repos\aap_project\DateSeer\obj\Debug\DateSeer.Register.resources
+C:\Users\Ainis\source\repos\aap_project\DateSeer\obj\Debug\DateSeer.csproj.GenerateResource.cache
+C:\Users\Ainis\source\repos\aap_project\DateSeer\obj\Debug\DateSeer.csproj.CoreCompileInputs.cache
+C:\Users\Ainis\source\repos\aap_project\DateSeer\obj\Debug\DateSeer.exe
+C:\Users\Ainis\source\repos\aap_project\DateSeer\obj\Debug\DateSeer.pdb
