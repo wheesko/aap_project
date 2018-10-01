@@ -12,7 +12,7 @@ namespace DateSeer
     {
         public static DataTable executeStoredProcedure(string spName, List<SqlParameter> sqlParams = null){
 
-            string strConn = "Server=DESKTOP-39HKRUP\\SQLEXPRESS;Database=Login_data;Trusted_Connection=True";
+            string strConn = "Server="+ Environment.MachineName +"\\SQLEXPRESS;Database=Login_data;Trusted_Connection=True";
 
             SqlConnection conn = new SqlConnection();
 
@@ -49,5 +49,62 @@ namespace DateSeer
             return dt;
 
         }
+        public static void CreateUser(User user)
+        {
+            //get params from user class
+            string username = user.getusername();
+            string password = user.getpassword();
+            string email = user.getemail();
+            string name = user.getname();
+            //create sql params
+            List<SqlParameter> sqlParams = new List<SqlParameter>();
+            List<SqlParameter> checkParams = new List<SqlParameter>();
+            //stage check params
+            checkParams.Add(new SqlParameter("Username", username));
+            checkParams.Add(new SqlParameter("Email", email));
+            if (executeStoredProcedure("GetByEmailOrUsername", checkParams).Rows.Count == 0)//check if query returned only 1 row
+            {
+
+                string savedPasswordHash = new HashFunctions().GetHash(password);
+                sqlParams.Add(new SqlParameter("Name", name));
+                sqlParams.Add(new SqlParameter("Email", email));
+                sqlParams.Add(new SqlParameter("Username", username));
+                sqlParams.Add(new SqlParameter("Password", savedPasswordHash));
+
+                executeStoredProcedure("AddUser", sqlParams);
+            }
+            else
+            {
+                throw new Exception();//else throw exception
+            }
+        }
+        public static bool CompareToHash(User user)
+        {
+            //get from user class
+            string gotUsernameString = user.getusername();
+            string gotPassString = user.getpassword();
+            //find user by username
+            List<SqlParameter> sqlParams = new List<SqlParameter>();
+            sqlParams.Add(new SqlParameter("Username", gotUsernameString));
+            DataTable dtLoginResults = DAL.executeStoredProcedure("ValidateLogin", sqlParams);
+            if (dtLoginResults.Rows.Count == 1) //if only 1 user found
+            {
+                string gotString = dtLoginResults.Rows[0]["password"].ToString();
+
+                if (new HashFunctions().GetNewHash(gotPassString, gotString) == true) //compare hashed passwords
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+
     }
 }

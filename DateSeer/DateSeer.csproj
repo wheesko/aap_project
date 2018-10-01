@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HashFunctions.cs" />
+    <Compile Include="User.cs" />
     <Compile Include="DAL.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
