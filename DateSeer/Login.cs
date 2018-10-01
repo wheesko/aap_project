@@ -1,13 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+
 
 namespace DateSeer
 {
@@ -85,22 +81,17 @@ namespace DateSeer
         {
             if (UsernameTextBox.Text != "" && PasswordTextBox.Text != "")
             {
-                List<SqlParameter> sqlParams = new List<SqlParameter>();
-                sqlParams.Add(new SqlParameter("Username", UsernameTextBox.Text));
-                sqlParams.Add(new SqlParameter("Password", PasswordTextBox.Text));
-
-                DataTable dtLoginResults = DAL.executeStoredProcedure("ValidateLogin", sqlParams);
-
-                if (dtLoginResults.Rows.Count == 1)
+                User loginUser = new User(UsernameTextBox.Text, PasswordTextBox.Text);
+                if (DAL.CompareToHash(loginUser) == true)
                 {
-                    MessageBox.Show("Logged in");
                     this.Hide();
                     Main main = new Main();
                     main.Show();
+                    MessageBox.Show("Logged in");
                 }
                 else
                 {
-                    MessageBox.Show("Invalid login");
+                    MessageBox.Show("Bad username or pass");
                 }
             }
             else
@@ -118,7 +109,6 @@ namespace DateSeer
 
         private void FacebookButton_Click(object sender, EventArgs e)
         {
-
         }
 
         private void Login_FormClosing(object sender, FormClosingEventArgs e)

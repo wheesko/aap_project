@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -39,26 +40,25 @@ namespace DateSeer
         {
             if (textBox1.Text != "" && textBox2.Text != "" && textBox3.Text != "" && textBox4.Text != "" && textBox5.Text != "")
             {
-                List<SqlParameter> sqlParams = new List<SqlParameter>();
-                List<SqlParameter> checkParams = new List<SqlParameter>();
-
-                checkParams.Add(new SqlParameter("Username", textBox3.Text));
-                checkParams.Add(new SqlParameter("Email", textBox2.Text));
-                if (DAL.executeStoredProcedure("GetByEmailOrUsername", checkParams).Rows.Count == 0)
-                {
+              
                     if (textBox4.Text == textBox5.Text)
                     {
-                        sqlParams.Add(new SqlParameter("Name", textBox1.Text));
-                        sqlParams.Add(new SqlParameter("Email", textBox2.Text));
-                        sqlParams.Add(new SqlParameter("Username", textBox3.Text));
-                        sqlParams.Add(new SqlParameter("Password", textBox4.Text));
-                        textBox1.Text = "";
-                        textBox2.Text = "";
-                        textBox3.Text = "";
-                        textBox4.Text = "";
-                        textBox5.Text = "";
-                        DAL.executeStoredProcedure("AddUser", sqlParams);
-                        MessageBox.Show("Registration complete");
+                        User registeringUser = new User(textBox3.Text, textBox4.Text, textBox2.Text, textBox1.Text);
+                        try
+                        {
+                            DAL.CreateUser(registeringUser);
+                            MessageBox.Show("Registered Succesfully");
+                        }
+                        catch(Exception ex)
+                        {
+                            textBox1.Text = "";
+                            textBox3.Text = "";
+                            textBox2.Text = "";
+                            textBox4.Text = "";
+                            textBox5.Text = "";
+                            MessageBox.Show("Username or Email already taken");
+                        }
+                       
                     }
                     else
                     {
@@ -66,15 +66,7 @@ namespace DateSeer
                         textBox5.Text = "";
                         MessageBox.Show("Passwords did not match");
                     }
-                }
-                else
-                {
-                    textBox2.Text = "";
-                    textBox3.Text = "";
-                    textBox4.Text = "";
-                    textBox5.Text = "";
-                    MessageBox.Show("Email or Username already taken");
-                }
+               
             }
             else
             {
