@@ -47,6 +47,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HashFunctions.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="User.cs" />
     <Compile Include="DAL.cs" />
     <Compile Include="Login.cs">
@@ -77,14 +82,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
     </EmbeddedResource>
@@ -102,7 +102,25 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\hair-style-street-fashion-beautiful-girl_1139-844.jpg" />
+    <None Include="Resources\Exit_Icon.png.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Connect_with_facebook.png.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Option_Icon.png.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Home_Icon.png.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Camera_Icon.png.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Chat_Icon.png.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Picture_example.png.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

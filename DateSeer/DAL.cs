@@ -1,5 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,7 +16,7 @@ namespace DateSeer
     {
         public static DataTable executeStoredProcedure(string spName, List<SqlParameter> sqlParams = null){
 
-            string strConn = "Server="+ Environment.MachineName +"\\SQLEXPRESS;Database=Login_data;Trusted_Connection=True";
+            string strConn = "Server=DESKTOP-39HKRUP\\SQLEXPRESS;Database=Login_data;Trusted_Connection=True";
 
             SqlConnection conn = new SqlConnection();
 
