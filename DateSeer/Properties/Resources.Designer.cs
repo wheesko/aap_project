@@ -63,9 +63,69 @@ namespace DateSeer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap hair_style_street_fashion_beautiful_girl_1139_844 {
+        internal static System.Drawing.Bitmap Camera_Icon_png {
             get {
-                object obj = ResourceManager.GetObject("hair-style-street-fashion-beautiful-girl_1139-844", resourceCulture);
+                object obj = ResourceManager.GetObject("Camera_Icon.png", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Chat_Icon_png {
+            get {
+                object obj = ResourceManager.GetObject("Chat_Icon.png", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Connect_with_facebook_png {
+            get {
+                object obj = ResourceManager.GetObject("Connect_with_facebook.png", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Exit_Icon_png {
+            get {
+                object obj = ResourceManager.GetObject("Exit_Icon.png", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Home_Icon_png {
+            get {
+                object obj = ResourceManager.GetObject("Home_Icon.png", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Option_Icon_png {
+            get {
+                object obj = ResourceManager.GetObject("Option_Icon.png", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Picture_example_png {
+            get {
+                object obj = ResourceManager.GetObject("Picture_example.png", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -31,14 +31,12 @@ namespace DateSeer
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Login Loginback = new Login();
-            Loginback.Show();
+          
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text != "" && textBox2.Text != "" && textBox3.Text != "" && textBox4.Text != "" && textBox5.Text != "")
+            if (textBox1.Text != "" && textBox2.Text != "" && textBox3.Text != "" && textBox4.Text != "Enter your password" && textBox5.Text != "Reapet your password")
             {
               
                     if (textBox4.Text == textBox5.Text)
@@ -48,22 +46,43 @@ namespace DateSeer
                         {
                             DAL.CreateUser(registeringUser);
                             MessageBox.Show("Registered Succesfully");
-                        }
+                            this.Hide();
+                            Login LoginBack = new Login();
+                            LoginBack.Show();
+
+                    }
                         catch(Exception ex)
                         {
-                            textBox1.Text = "";
-                            textBox3.Text = "";
-                            textBox2.Text = "";
-                            textBox4.Text = "";
-                            textBox5.Text = "";
+
+                            textBox1.ForeColor = Color.Silver;
+                            textBox2.ForeColor = Color.Silver;
+                            textBox3.ForeColor = Color.Silver;
+                            textBox4.ForeColor = Color.Silver;
+                            textBox5.ForeColor = Color.Silver;
+
+                            textBox1.Text = "Enter your name";
+                            textBox2.Text = "Enter your email";
+                            textBox3.Text = "Enter your username";
+
+                            textBox4.PasswordChar = '\0';
+                            textBox5.PasswordChar = '\0';
+                            textBox4.Text = "Enter your password";
+                            textBox5.Text = "Repeat your password";
+                           
                             MessageBox.Show("Username or Email already taken");
                         }
                        
                     }
                     else
                     {
-                        textBox4.Text = "";
-                        textBox5.Text = "";
+                        textBox4.PasswordChar = '\0';
+                        textBox5.PasswordChar = '\0';
+
+                        textBox4.ForeColor = Color.Silver;
+                        textBox5.ForeColor = Color.Silver;
+
+                        textBox4.Text = "Enter your password";
+                        textBox5.Text = "Repeat your password";
                         MessageBox.Show("Passwords did not match");
                     }
                
@@ -102,6 +121,139 @@ namespace DateSeer
         private void Register_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void textBox1_Leave(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "")
+            {
+                textBox1.Text = "Enter your name";
+
+                textBox1.ForeColor = Color.Silver;
+            }
+        }
+
+        private void textBox1_Enter(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "Enter your name")
+            {
+                textBox1.Text = "";
+
+                textBox1.ForeColor = Color.Black;
+            }
+        }
+
+        private void textBox2_Enter(object sender, EventArgs e)
+        {
+            if (textBox2.Text == "Enter your email")
+            {
+                textBox2.Text = "";
+
+                textBox2.ForeColor = Color.Black;
+            }
+        }
+
+        private void textBox2_Leave(object sender, EventArgs e)
+        {
+            if (textBox2.Text == "")
+            {
+                textBox2.Text = "Enter your email";
+
+                textBox2.ForeColor = Color.Silver;
+            }
+        }
+
+        private void textBox3_Enter(object sender, EventArgs e)
+        {
+            if (textBox3.Text == "Enter your username")
+            {
+                textBox3.Text = "";
+
+                textBox3.ForeColor = Color.Black;
+            }
+          
+        }
+
+        private void textBox3_Leave(object sender, EventArgs e)
+        {
+            if (textBox3.Text == "")
+            {
+                textBox3.Text = "Enter your username";
+
+                textBox3.ForeColor = Color.Silver;
+            }
+        }
+
+        private void textBox4_Leave(object sender, EventArgs e)
+        {
+            if (textBox4.Text == "")
+            {
+                textBox4.PasswordChar = '\0';
+                textBox4.Text = "Enter your password";
+
+                textBox4.ForeColor = Color.Silver;
+            }
+
+        }
+
+        private void textBox4_Enter(object sender, EventArgs e)
+        {
+            if (textBox4.Text == "Enter your password")
+            {
+                textBox4.PasswordChar = '*';
+                textBox4.Text = "";
+
+                textBox4.ForeColor = Color.Black;
+            }
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox5_Leave(object sender, EventArgs e)
+        {
+            if (textBox5.Text == "")
+            {
+                textBox5.PasswordChar = '\0';
+                textBox5.Text = "Repeat your password";
+
+                textBox5.ForeColor = Color.Silver;
+            }
+        }
+
+        private void textBox5_Enter(object sender, EventArgs e)
+        {
+            if (textBox5.Text == "Repeat your password")
+            {
+                textBox5.PasswordChar = '*';
+                textBox5.Text = "";
+
+                textBox5.ForeColor = Color.Black;
+            }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Login Loginback = new Login();
+            Loginback.Show();
+        }
+
+        private void label8_MouseHover(object sender, EventArgs e)
+        {
+            label8.ForeColor = Color.Red;
+        }
+
+        private void label8_MouseLeave(object sender, EventArgs e)
+        {
+            label8.ForeColor = Color.Black;
         }
     }
 }
