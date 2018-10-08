@@ -46,12 +46,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GetUserInfo.cs" />
+    <Compile Include="Options.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Options.cs</DependentUpon>
+    </Compile>
     <Compile Include="HashFunctions.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Upload.cs" />
     <Compile Include="User.cs" />
     <Compile Include="DAL.cs" />
     <Compile Include="Login.cs">
@@ -79,6 +87,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options.resx">
+      <DependentUpon>Options.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -121,6 +132,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Picture_example.png.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\DefaultAccountPic\male.png" />
+    <Content Include="Resources\DefaultAccountPic\female.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\Men\" />
+    <Folder Include="Resources\Women\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
