@@ -26,6 +26,40 @@ namespace DateSeer
         private void label3_Click(object sender, EventArgs e)
         {
             Upload photo = new Upload();
+           ChangeDatabase change = new ChangeDatabase(photo.getPathR(), MainUser);
+            MainUser.setImage(photo.getPathR());
+           Option_Load();
+
+        }
+
+        private void Option_Load()
+        {
+            UserName.Text = MainUser.getName();
+            string PathR = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
+            PathR = Path.Combine(PathR, "Resources");
+            PathR = Path.Combine(PathR, "DefaultAccountPic");
+            if (MainUser.getImage() == "")
+            {
+                if (MainUser.getGenre() == 1)
+                {
+
+                    Image image = Image.FromFile(PathR + @"\male.png");
+                    pictureBox1.Image = image;
+
+                }
+                else
+                {
+                    Image image = Image.FromFile(PathR + @"\female.jpg");
+                    pictureBox1.Image = image;
+
+                }
+
+            }
+            else
+            {
+                Image image = Image.FromFile(MainUser.getImage());
+                pictureBox1.Image = image;
+            }
         }
 
         private void label3_MouseHover(object sender, EventArgs e)
@@ -45,32 +79,8 @@ namespace DateSeer
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            UserName.Text = MainUser.getName();
-            string PathR = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
-            PathR = Path.Combine(PathR, "Resources");
-            PathR = Path.Combine(PathR, "DefaultAccountPic");
-            if (MainUser.getImage() == "")
-            {
-                if (MainUser.getGenre() == 1)
-                {
-                  
-                    Image image = Image.FromFile(PathR + @"\male.png");
-                    pictureBox1.Image = image;
-                   
-                }
-                else
-                {
-                    Image image = Image.FromFile(PathR + @"\female.jpg");
-                    pictureBox1.Image = image;
-
-                }
-
-            }
-            else
-            {
-                Image image = Image.FromFile(MainUser.getImage());
-                pictureBox1.Image = image;
-            }
+            Option_Load();
+            
             
         }
 
@@ -87,6 +97,28 @@ namespace DateSeer
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void Update_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_MouseHover(object sender, EventArgs e)
+        {
+            label1.ForeColor = Color.Red;
+        }
+
+        private void label1_MouseLeave(object sender, EventArgs e)
+        {
+            label1.ForeColor = Color.Black;
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
+            Main n = new Main(MainUser);
+            n.Show();
         }
     }
 }

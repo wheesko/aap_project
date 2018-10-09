@@ -46,7 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChangeDatabase.cs" />
     <Compile Include="GetUserInfo.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Options.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,8 +140,7 @@
     <Content Include="Resources\DefaultAccountPic\female.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\Men\" />
-    <Folder Include="Resources\Women\" />
+    <Folder Include="Resources\ProfilePictures\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

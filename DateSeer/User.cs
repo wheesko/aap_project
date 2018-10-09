@@ -18,6 +18,8 @@ namespace DateSeer
         private string name;
         private string image;
 
+       
+
         public User(string gotUsername, string gotPassword, string gotEmail, string gotName, int gotGenre)//used for register form
         {
             this.email = gotEmail;
@@ -26,6 +28,12 @@ namespace DateSeer
             this.name = gotName;
             this.genre = gotGenre;
         }
+
+        internal void setImage(string path)
+        {
+            image = path;
+        }
+
         public User(string gotUsername, string gotPassword)//used for login form
         {
             this.username = gotUsername;
@@ -41,6 +49,7 @@ namespace DateSeer
             this.genre = get.getGenre();
             this.image = get.getImage();
         }
+      
         public string getImage()
         {
             return image;

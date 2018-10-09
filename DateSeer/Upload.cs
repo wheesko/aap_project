@@ -11,6 +11,7 @@ namespace DateSeer
 {
     class Upload
     {
+        public string PathR;
         public Upload()
         {
             OpenFileDialog ofd = new OpenFileDialog();
@@ -22,10 +23,17 @@ namespace DateSeer
             {
                 try
                 {
-                    string iName = ofd.SafeFileName;   // <---
-                    string filepath = ofd.FileName;    // <---
-                  //  File.Copy(filepath, appPath + iName); // <---
-                 //   picProduct.Image = new Bitmap(ofd.OpenFile());
+                  
+                    PathR = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
+                    PathR = Path.Combine(PathR, "Resources");
+                    PathR = Path.Combine(PathR, "ProfilePictures");
+                 
+                
+                    File.Copy(ofd.FileName, Path.Combine(PathR, Path.GetFileName(ofd.FileName)),true);
+                    PathR = Path.Combine(PathR, Path.GetFileName(ofd.FileName));
+                    MessageBox.Show(PathR);
+                   
+
                 }
                 catch (Exception exp)
                 {
@@ -34,11 +42,15 @@ namespace DateSeer
             }
             else
             {
-             //   opFile.Dispose();
+             ofd.Dispose();
             }
         }
-       
+        public string getPathR()
+        {
+            return PathR;
         }
+       
     }
 }
+
 
