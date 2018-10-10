@@ -31,7 +31,7 @@ namespace DateSeer
                 
                     File.Copy(ofd.FileName, Path.Combine(PathR, Path.GetFileName(ofd.FileName)),true);
                     PathR = Path.Combine(PathR, Path.GetFileName(ofd.FileName));
-                    MessageBox.Show(PathR);
+                   
                    
 
                 }

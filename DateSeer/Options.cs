@@ -25,6 +25,8 @@ namespace DateSeer
 
         private void label3_Click(object sender, EventArgs e)
         {
+            Register newregister = new Register();
+          
             Upload photo = new Upload();
            ChangeDatabase change = new ChangeDatabase(photo.getPathR(), MainUser);
             MainUser.setImage(photo.getPathR());
@@ -57,8 +59,14 @@ namespace DateSeer
             }
             else
             {
-                Image image = Image.FromFile(MainUser.getImage());
-                pictureBox1.Image = image;
+                try
+                {
+                    Image image = Image.FromFile(MainUser.getImage());
+                    pictureBox1.Image = image;
+                }
+                catch (Exception ex) { }
+
+                    
             }
         }
 

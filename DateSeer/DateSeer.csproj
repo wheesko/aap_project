@@ -48,7 +48,6 @@
   <ItemGroup>
     <Compile Include="ChangeDatabase.cs" />
     <Compile Include="GetUserInfo.cs" />
-    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Options.cs">
       <SubType>Form</SubType>
     </Compile>

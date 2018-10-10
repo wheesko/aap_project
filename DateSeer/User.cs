@@ -49,7 +49,7 @@ namespace DateSeer
             this.genre = get.getGenre();
             this.image = get.getImage();
         }
-      
+
         public string getImage()
         {
             return image;
