@@ -19,7 +19,7 @@ namespace DateSeer
         "https://www.facebook.com/connect/login_success.html";
         private const string AppId = "469134376928786";
         private const string ExtendedPermissions =
-     "publish_actions, user_managed_groups, user_groups, user_birthday, user_gender";
+        "publish_actions, user_managed_groups, user_groups, user_birthday, user_gender";
 
 
         public FacebookLogin()
