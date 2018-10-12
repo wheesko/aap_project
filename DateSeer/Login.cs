@@ -206,5 +206,12 @@ namespace DateSeer
         {
             label2.ForeColor = Color.Black;
         }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FacebookLogin fb = new FacebookLogin();
+            fb.Show();
+        }
     }
     }
