@@ -28,13 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.webView1 = new EO.WebBrowser.WebView();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.SuspendLayout();
-            // 
-            // webView1
-            // 
-            this.webView1.ObjectForScripting = null;
+ 
             // 
             // webBrowser1
             // 
@@ -61,7 +57,6 @@
         }
 
         #endregion
-        private EO.WebBrowser.WebView webView1;
         private System.Windows.Forms.WebBrowser webBrowser1;
     }
 }
