@@ -13,7 +13,6 @@ C:\Users\Ainis\source\repos\DateSeer\DateSeer\obj\Debug\DateSeer.Register.resour
 C:\Users\n01\Desktop\New folder\aap_project\DateSeer\bin\Debug\DateSeer.exe.config
 C:\Users\n01\Desktop\New folder\aap_project\DateSeer\bin\Debug\DateSeer.exe
 C:\Users\n01\Desktop\New folder\aap_project\DateSeer\bin\Debug\DateSeer.pdb
-C:\Users\n01\Desktop\New folder\aap_project\DateSeer\obj\Debug\DateSeer.csprojResolveAssemblyReference.cache
 C:\Users\n01\Desktop\New folder\aap_project\DateSeer\obj\Debug\DateSeer.Login.resources
 C:\Users\n01\Desktop\New folder\aap_project\DateSeer\obj\Debug\DateSeer.Main.resources
 C:\Users\n01\Desktop\New folder\aap_project\DateSeer\obj\Debug\DateSeer.Properties.Resources.resources
@@ -106,3 +105,15 @@ C:\Users\n01\Desktop\New folder (7)\aap_project\DateSeer\bin\Debug\EO.WebEngine.
 C:\Users\n01\Desktop\New folder (7)\aap_project\DateSeer\bin\Debug\Facebook.xml
 C:\Users\n01\Desktop\New folder (7)\aap_project\DateSeer\obj\Debug\DateSeer.FacebookLogin.resources
 C:\Users\n01\Desktop\New folder (7)\aap_project\DateSeer\obj\Debug\DateSeer.csproj.CopyComplete
+C:\Users\n01\Desktop\New folder\aap_project\DateSeer\obj\Debug\DateSeer.csprojAssemblyReference.cache
+C:\Users\n01\Desktop\New folder\aap_project\DateSeer\obj\Debug\DateSeer.FacebookLogin.resources
+C:\Users\n01\Desktop\New folder\aap_project\DateSeer\obj\Debug\DateSeer.Options.resources
+C:\Users\n01\Desktop\New folder\aap_project\DateSeer\bin\Debug\EO.Base.dll
+C:\Users\n01\Desktop\New folder\aap_project\DateSeer\bin\Debug\EO.WebBrowser.dll
+C:\Users\n01\Desktop\New folder\aap_project\DateSeer\bin\Debug\EO.WebEngine.dll
+C:\Users\n01\Desktop\New folder\aap_project\DateSeer\bin\Debug\Facebook.dll
+C:\Users\n01\Desktop\New folder\aap_project\DateSeer\bin\Debug\EO.Base.xml
+C:\Users\n01\Desktop\New folder\aap_project\DateSeer\bin\Debug\EO.WebBrowser.xml
+C:\Users\n01\Desktop\New folder\aap_project\DateSeer\bin\Debug\EO.WebEngine.xml
+C:\Users\n01\Desktop\New folder\aap_project\DateSeer\bin\Debug\Facebook.xml
+C:\Users\n01\Desktop\New folder\aap_project\DateSeer\obj\Debug\DateSeer.csproj.CopyComplete

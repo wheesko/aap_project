@@ -42,7 +42,7 @@ namespace DateSeer
             PathR = Path.Combine(PathR, "DefaultAccountPic");
             if (MainUser.getImage() == "")
             {
-                if (MainUser.getGenre() == 1)
+                if (MainUser.getGender() == 1)
                 {
 
                     Image image = Image.FromFile(PathR + @"\male.png");

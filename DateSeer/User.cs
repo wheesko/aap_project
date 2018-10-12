@@ -11,24 +11,36 @@ namespace DateSeer
 {
     public class User
     {
-        private int genre;
+        private int gender;
         private string email;
         private string username;
         private string password;
         private string name;
         private string image;
+        private string facebookID;
+        private string birthdate;
 
-       
 
-        public User(string gotUsername, string gotPassword, string gotEmail, string gotName, int gotGenre)//used for register form
+        public User(string gotUsername, string gotPassword, string gotEmail, string gotName, string gotBirthdate, int gotGender)//used for register form
         {
             this.email = gotEmail;
             this.username = gotUsername;
             this.password = gotPassword;
             this.name = gotName;
-            this.genre = gotGenre;
+            this.gender = gotGender;
+            this.facebookID = null;
+            this.birthdate = gotBirthdate;
         }
-
+        public User(string gotEmail, string gotName, string gotfacebookID, string gotBirthdate, int gotGender)//used for login with facebook
+        {
+            this.username = " ";
+            this.password = " ";
+            this.name = gotName;
+            this.email = gotEmail;
+            this.facebookID = gotfacebookID;
+            this.birthdate = gotBirthdate;
+            this.gender = gotGender;
+        }
         internal void setImage(string path)
         {
             image = path;
@@ -46,7 +58,7 @@ namespace DateSeer
             GetUserInfo get = new GetUserInfo(username);
             this.name = get.getName();
             this.email = get.getEmail();
-            this.genre = get.getGenre();
+            this.gender = get.getGender();
             this.image = get.getImage();
         }
 
@@ -70,9 +82,17 @@ namespace DateSeer
         {
             return password;
         }
-        public int getGenre()
+        public int getGender()
         {
-            return genre;
+            return gender;
+        }
+        public string getBirthday()
+        {
+            return birthdate;
+        }
+        public string getFacebookID()
+        {
+            return facebookID;
         }
     }
 

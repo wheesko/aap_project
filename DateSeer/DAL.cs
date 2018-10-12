@@ -60,7 +60,8 @@ namespace DateSeer
             string password = user.getpassword();
             string email = user.getemail();
             string name = user.getUsername();
-            int genre = user.getGenre();
+            int gender = user.getGender();
+            string birthday = user.getBirthday().ToString();
             //create sql params
             List<SqlParameter> sqlParams = new List<SqlParameter>();
             List<SqlParameter> checkParams = new List<SqlParameter>();
@@ -75,7 +76,8 @@ namespace DateSeer
                 sqlParams.Add(new SqlParameter("Email", email));
                 sqlParams.Add(new SqlParameter("Username", username));
                 sqlParams.Add(new SqlParameter("Password", savedPasswordHash));
-                sqlParams.Add(new SqlParameter("Genre", genre));
+                sqlParams.Add(new SqlParameter("Gender", gender));
+                sqlParams.Add(new SqlParameter("Birthday", birthday));
                 executeStoredProcedure("AddUser", sqlParams);
             }
             else
@@ -110,6 +112,38 @@ namespace DateSeer
             {
                 return false;
             }
+        }
+        public static void checkforFacebook(User user)
+        {
+           
+            List<SqlParameter> checkParams = new List<SqlParameter>();
+            List<SqlParameter> sqlParams = new List<SqlParameter>();
+            //stage check params
+            checkParams.Add(new SqlParameter("Username", user.getUsername()));
+            checkParams.Add(new SqlParameter("Email", user.getemail()));
+            DataTable dt = executeStoredProcedure("GetByEmailOrUsername", checkParams);
+            if (dt.Rows.Count == 0)//user not created and first time logging in
+            {
+                sqlParams.Add(new SqlParameter("Name", user.getName()));
+                sqlParams.Add(new SqlParameter("Email", user.getemail()));
+                sqlParams.Add(new SqlParameter("Username", " "));
+                sqlParams.Add(new SqlParameter("Password", " "));
+                sqlParams.Add(new SqlParameter("Gender", user.getGender()));
+                sqlParams.Add(new SqlParameter("Birthday", user.getBirthday().ToString()));
+                sqlParams.Add(new SqlParameter("FacebookID", user.getFacebookID()));
+                executeStoredProcedure("AddUser", sqlParams);
+            }
+            else if (dt.Rows.Count == 1 && (dt.Rows[0]["FacebookID"].ToString() == "0" || dt.Rows[0]["FacebookID"] == null))//user created, logging in with facebook
+            {
+                sqlParams.Add(new SqlParameter("FacebookID", user.getFacebookID()));
+                sqlParams.Add(new SqlParameter("Email", user.getemail()));
+                executeStoredProcedure("UpdateFacebookID", sqlParams);
+            }
+            else //user created and has facebookID
+            {
+                return;
+            }
+           
         }
 
     }

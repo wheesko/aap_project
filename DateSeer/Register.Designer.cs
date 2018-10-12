@@ -43,9 +43,11 @@
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.MaleBox = new System.Windows.Forms.CheckBox();
             this.FemaleBox = new System.Windows.Forms.CheckBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,7 +77,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(238, 651);
+            this.button1.Location = new System.Drawing.Point(238, 761);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(289, 48);
             this.button1.TabIndex = 2;
@@ -211,7 +213,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe Print", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(12, 662);
+            this.label8.Location = new System.Drawing.Point(12, 763);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(90, 49);
             this.label8.TabIndex = 15;
@@ -220,21 +222,11 @@
             this.label8.MouseLeave += new System.EventHandler(this.label8_MouseLeave);
             this.label8.MouseHover += new System.EventHandler(this.label8_MouseHover);
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe Script", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(232, 559);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(75, 32);
-            this.label9.TabIndex = 16;
-            this.label9.Text = "Genre";
-            // 
             // MaleBox
             // 
             this.MaleBox.AutoSize = true;
             this.MaleBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MaleBox.Location = new System.Drawing.Point(132, 589);
+            this.MaleBox.Location = new System.Drawing.Point(132, 663);
             this.MaleBox.Name = "MaleBox";
             this.MaleBox.Size = new System.Drawing.Size(77, 29);
             this.MaleBox.TabIndex = 17;
@@ -248,7 +240,7 @@
             // 
             this.FemaleBox.AutoSize = true;
             this.FemaleBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FemaleBox.Location = new System.Drawing.Point(322, 589);
+            this.FemaleBox.Location = new System.Drawing.Point(309, 663);
             this.FemaleBox.Name = "FemaleBox";
             this.FemaleBox.Size = new System.Drawing.Size(99, 29);
             this.FemaleBox.TabIndex = 18;
@@ -258,16 +250,48 @@
             this.FemaleBox.CheckStateChanged += new System.EventHandler(this.FemaleBox_CheckStateChanged);
             this.FemaleBox.Click += new System.EventHandler(this.FemaleBox_Click);
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(132, 594);
+            this.dateTimePicker1.MinDate = new System.DateTime(1990, 1, 1, 0, 0, 0, 0);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(289, 22);
+            this.dateTimePicker1.TabIndex = 19;
+            this.dateTimePicker1.Value = new System.DateTime(1990, 1, 1, 0, 0, 0, 0);
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe Script", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(232, 619);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(91, 32);
+            this.label10.TabIndex = 21;
+            this.label10.Text = "Gender";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe Script", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(195, 559);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(168, 32);
+            this.label9.TabIndex = 22;
+            this.label9.Text = "Your birthday";
+            // 
             // Register
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(539, 720);
+            this.ClientSize = new System.Drawing.Size(539, 821);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.FemaleBox);
             this.Controls.Add(this.MaleBox);
-            this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label7);
@@ -312,8 +336,10 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.CheckBox MaleBox;
         private System.Windows.Forms.CheckBox FemaleBox;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
     }
 }

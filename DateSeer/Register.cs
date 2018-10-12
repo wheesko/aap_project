@@ -35,44 +35,50 @@ namespace DateSeer
 
         private void button1_Click(object sender, EventArgs e)
         {
+            // Save today's date.
+            var today = DateTime.Today;
+            // Calculate the age.
+            var age = today.Year - dateTimePicker1.Value.Year;
+            // Go back to the year the person was born in case of a leap year
+            if (dateTimePicker1.Value > today.AddYears(-age)) age--;
             if (textBox1.Text != "" && textBox2.Text != "" && textBox3.Text != "" && textBox4.Text != "Enter your password" && textBox5.Text != "Reapet your password" &&(MaleBox.Checked == true || FemaleBox.Checked ==true))
             {
-              
+                if (age >= 18) {
                     if (textBox4.Text == textBox5.Text)
                     {
-                        int genre1 = 0;
-                        if (MaleBox.Checked == true) { genre1 = 1; }
-                        if (FemaleBox.Checked == true) { genre1 = 2; }
-                    User registeringUser = new User(textBox3.Text, textBox4.Text, textBox2.Text, textBox1.Text,genre1);
-                    try
-                    {
-                        DAL.CreateUser(registeringUser);
-                        this.Hide();
-                        Login LoginBack = new Login();
-                        LoginBack.Show();
+                        int gender1 = 0;
+                        if (MaleBox.Checked == true) { gender1 = 1; }
+                        if (FemaleBox.Checked == true) { gender1 = 2; }
+                        User registeringUser = new User(textBox3.Text, textBox4.Text, textBox2.Text, textBox1.Text, dateTimePicker1.Value.ToString(), gender1);
+                        try
+                        {
+                            DAL.CreateUser(registeringUser);
+                            this.Hide();
+                            Login LoginBack = new Login();
+                            LoginBack.Show();
 
-                    }
-                    catch (Exception ex)
-                    {
+                        }
+                        catch (Exception ex)
+                        {
 
-                        textBox1.ForeColor = Color.Silver;
-                        textBox2.ForeColor = Color.Silver;
-                        textBox3.ForeColor = Color.Silver;
-                        textBox4.ForeColor = Color.Silver;
-                        textBox5.ForeColor = Color.Silver;
+                            textBox1.ForeColor = Color.Silver;
+                            textBox2.ForeColor = Color.Silver;
+                            textBox3.ForeColor = Color.Silver;
+                            textBox4.ForeColor = Color.Silver;
+                            textBox5.ForeColor = Color.Silver;
 
-                        textBox1.Text = "Enter your name";
-                        textBox2.Text = "Enter your email";
-                        textBox3.Text = "Enter your username";
+                            textBox1.Text = "Enter your name";
+                            textBox2.Text = "Enter your email";
+                            textBox3.Text = "Enter your username";
 
-                        textBox4.PasswordChar = '\0';
-                        textBox5.PasswordChar = '\0';
-                        textBox4.Text = "Enter your password";
-                        textBox5.Text = "Repeat your password";
+                            textBox4.PasswordChar = '\0';
+                            textBox5.PasswordChar = '\0';
+                            textBox4.Text = "Enter your password";
+                            textBox5.Text = "Repeat your password";
 
-                        MessageBox.Show("Username or Email already taken");
-                    }
-                       
+                            MessageBox.Show("Username or Email already taken");
+                        }
+
                     }
                     else
                     {
@@ -86,7 +92,11 @@ namespace DateSeer
                         textBox5.Text = "Repeat your password";
                         MessageBox.Show("Passwords did not match");
                     }
-               
+                }
+                else
+                {
+                    MessageBox.Show("You are under 18!");
+                }
             }
             else
             {
@@ -294,6 +304,11 @@ namespace DateSeer
                 MaleBox.Checked = false;
                 FemaleBox.Checked = true;
             }
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

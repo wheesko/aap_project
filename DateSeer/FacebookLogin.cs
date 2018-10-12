@@ -19,7 +19,7 @@ namespace DateSeer
         "https://www.facebook.com/connect/login_success.html";
         private const string AppId = "469134376928786";
         private const string ExtendedPermissions =
-     "publish_actions, user_managed_groups, user_groups";
+     "publish_actions, user_managed_groups, user_groups, user_birthday, user_gender";
 
 
         public FacebookLogin()
@@ -65,38 +65,25 @@ namespace DateSeer
                 redirect_uri = "https://www.facebook.com/connect/login_success.html",
                 response_type = "code",
                 display = "popup",
-                scope = "email"
+                scope = "email,user_birthday,user_gender"
             });
             return fbLoginUri;
         }
         
-        /*private void Web_Navigated(object sender, NavigationEventArgs e)
-        {
-            var fb = new FacebookClient();
-            FacebookOAuthResult oauthResult;
-            if (!fb.TryParseOAuthCallbackUrl(e.Uri, out oauthResult))
-                return;
-            if (oauthResult.IsSuccess)
-                LoginSucceeded(oauthResult);
-            else
-                MessageBox.Show("Login failed"); //LoginFailed(oauthResult); 
-        }*/
+   
         public void LoginSucceeded(FacebookOAuthResult oauthResult)
         {
-            // Hide the Web browser
-            //webBrowser1.IsEnabled = false;
-            // Grab the access token (necessary for further operations)
-            /* var tokenLoc = GetAccessToken(oauthResult);
-             var token = tokenLoc;
-             var aux = new FacebookClient(token);
-             aux.GetTaskAsync("fields", "id,name,email"); //Test, I want this variables*/
-            /*var _accessToken = oauthResult.AccessToken;
-            var fb = new FacebookClient(oauthResult.AccessToken);
-            dynamic result = fb.Get("/me/?fields=birthday,email,name");*/
-           // FacebookClient fb = new FacebookClient(oauthResult.AccessToken);
-            MessageBox.Show("Login succeeded");
-            this.Close();
-            Application.Exit();
+        
+             var fb = new FacebookClient(GetAccessToken(oauthResult));
+             dynamic result = fb.Get("/me/?fields=birthday,email,name,gender");
+             MessageBox.Show("Login succeeded");
+             MessageBox.Show(result.ToString());
+             this.Hide();
+             int gender = result["gender"] == "male" ? gender = 1 : gender = 2;           
+             User user = new User(result["email"], result["name"], result["id"], result["birthday"], gender);
+             DAL.checkforFacebook(user);
+             Main main = new Main(user);
+             main.Show();
         }
 
         private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
