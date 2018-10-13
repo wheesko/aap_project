@@ -56,10 +56,11 @@ namespace DateSeer
         public static void CreateUser(User user)
         {
             //get params from user class
-            string username = user.getusername();
+            string username = user.getUsername();
             string password = user.getpassword();
             string email = user.getemail();
-            string name = user.getname();
+            string name = user.getUsername();
+            int genre = user.getGenre();
             //create sql params
             List<SqlParameter> sqlParams = new List<SqlParameter>();
             List<SqlParameter> checkParams = new List<SqlParameter>();
@@ -74,7 +75,7 @@ namespace DateSeer
                 sqlParams.Add(new SqlParameter("Email", email));
                 sqlParams.Add(new SqlParameter("Username", username));
                 sqlParams.Add(new SqlParameter("Password", savedPasswordHash));
-
+                sqlParams.Add(new SqlParameter("Genre", genre));
                 executeStoredProcedure("AddUser", sqlParams);
             }
             else
@@ -85,7 +86,7 @@ namespace DateSeer
         public static bool CompareToHash(User user)
         {
             //get from user class
-            string gotUsernameString = user.getusername();
+            string gotUsernameString = user.getUsername();
             string gotPassString = user.getpassword();
             //find user by username
             List<SqlParameter> sqlParams = new List<SqlParameter>();
@@ -98,6 +99,7 @@ namespace DateSeer
                 if (new HashFunctions().GetNewHash(gotPassString, gotString) == true) //compare hashed passwords
                 {
                     return true;
+
                 }
                 else
                 {

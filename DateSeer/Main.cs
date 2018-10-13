@@ -12,8 +12,12 @@ namespace DateSeer
 {
     public partial class Main : Form
     {
-        public Main()
+       public User MainUser;
+               
+        public Main(User MainUser)
         {
+            this.MainUser = MainUser;
+            MainUser.GetUserInfoByUsername();
             InitializeComponent();
         }
 
@@ -49,7 +53,10 @@ namespace DateSeer
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Our team is working on this feature.\nWe hope we will make it available for you as fast as possiable :)");
+            this.Hide();
+            Options options = new Options(MainUser);
+            options.Show();
+
         }
 
         private void pictureBox6_Click(object sender, EventArgs e)

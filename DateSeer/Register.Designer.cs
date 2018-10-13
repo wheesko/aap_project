@@ -43,6 +43,9 @@
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.MaleBox = new System.Windows.Forms.CheckBox();
+            this.FemaleBox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,7 +75,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(132, 590);
+            this.button1.Location = new System.Drawing.Point(238, 651);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(289, 48);
             this.button1.TabIndex = 2;
@@ -217,6 +220,44 @@
             this.label8.MouseLeave += new System.EventHandler(this.label8_MouseLeave);
             this.label8.MouseHover += new System.EventHandler(this.label8_MouseHover);
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe Script", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(232, 559);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(75, 32);
+            this.label9.TabIndex = 16;
+            this.label9.Text = "Genre";
+            // 
+            // MaleBox
+            // 
+            this.MaleBox.AutoSize = true;
+            this.MaleBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MaleBox.Location = new System.Drawing.Point(132, 589);
+            this.MaleBox.Name = "MaleBox";
+            this.MaleBox.Size = new System.Drawing.Size(77, 29);
+            this.MaleBox.TabIndex = 17;
+            this.MaleBox.Text = "Male";
+            this.MaleBox.UseVisualStyleBackColor = true;
+            this.MaleBox.CheckedChanged += new System.EventHandler(this.MaleBox_CheckedChanged_1);
+            this.MaleBox.CheckStateChanged += new System.EventHandler(this.MaleBox_CheckStateChanged);
+            this.MaleBox.Click += new System.EventHandler(this.MaleBox_Click);
+            // 
+            // FemaleBox
+            // 
+            this.FemaleBox.AutoSize = true;
+            this.FemaleBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FemaleBox.Location = new System.Drawing.Point(322, 589);
+            this.FemaleBox.Name = "FemaleBox";
+            this.FemaleBox.Size = new System.Drawing.Size(99, 29);
+            this.FemaleBox.TabIndex = 18;
+            this.FemaleBox.Text = "Female";
+            this.FemaleBox.UseVisualStyleBackColor = true;
+            this.FemaleBox.CheckedChanged += new System.EventHandler(this.FemaleBox_CheckedChanged);
+            this.FemaleBox.CheckStateChanged += new System.EventHandler(this.FemaleBox_CheckStateChanged);
+            this.FemaleBox.Click += new System.EventHandler(this.FemaleBox_Click);
+            // 
             // Register
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -224,6 +265,9 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(539, 720);
+            this.Controls.Add(this.FemaleBox);
+            this.Controls.Add(this.MaleBox);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label7);
@@ -268,5 +312,8 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.CheckBox MaleBox;
+        private System.Windows.Forms.CheckBox FemaleBox;
     }
 }

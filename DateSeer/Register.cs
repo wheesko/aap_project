@@ -36,12 +36,15 @@ namespace DateSeer
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text != "" && textBox2.Text != "" && textBox3.Text != "" && textBox4.Text != "Enter your password" && textBox5.Text != "Reapet your password")
+            if (textBox1.Text != "" && textBox2.Text != "" && textBox3.Text != "" && textBox4.Text != "Enter your password" && textBox5.Text != "Reapet your password" && MaleBox.Checked == true || FemaleBox.Checked ==true)
             {
               
                     if (textBox4.Text == textBox5.Text)
                     {
-                        User registeringUser = new User(textBox3.Text, textBox4.Text, textBox2.Text, textBox1.Text);
+                        int genre1 = 0;
+                        if (MaleBox.Checked == true) { genre1 = 1; }
+                        if (FemaleBox.Checked == true) { genre1 = 2; }
+                    User registeringUser = new User(textBox3.Text, textBox4.Text, textBox2.Text, textBox1.Text,genre1);
                         try
                         {
                             DAL.CreateUser(registeringUser);
@@ -254,6 +257,45 @@ namespace DateSeer
         private void label8_MouseLeave(object sender, EventArgs e)
         {
             label8.ForeColor = Color.Black;
+        }
+
+        private void FemaleBox_CheckedChanged(object sender, EventArgs e)
+        {
+    
+        }
+
+        private void MaleBox_CheckedChanged_1(object sender, EventArgs e)
+        {
+     
+        }
+
+        private void MaleBox_CheckStateChanged(object sender, EventArgs e)
+        {
+       
+           
+        }
+
+        private void FemaleBox_CheckStateChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void MaleBox_Click(object sender, EventArgs e)
+        {
+            if (FemaleBox.Checked == true)
+            {
+                FemaleBox.Checked = false;
+                MaleBox.Checked = true;
+            }
+        }
+
+        private void FemaleBox_Click(object sender, EventArgs e)
+        {
+            if (MaleBox.Checked == true)
+            {
+                MaleBox.Checked = false;
+                FemaleBox.Checked = true;
+            }
         }
     }
 }

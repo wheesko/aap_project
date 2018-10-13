@@ -88,7 +88,7 @@ namespace DateSeer
                 if (DAL.CompareToHash(loginUser) == true)
                 {
                     this.Hide();
-                    Main main = new Main();
+                    Main main = new Main(loginUser);
                     main.Show();
                     MessageBox.Show("Logged in");
                 }
