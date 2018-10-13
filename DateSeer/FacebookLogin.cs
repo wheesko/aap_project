@@ -105,5 +105,12 @@ namespace DateSeer
                 MessageBox.Show("Login failed"); //LoginFailed(oauthResult); 
 
         }
+
+        private void FacebookLogin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Hide();
+            Login login = new Login();
+            login.Show();
+        }
     }
 }

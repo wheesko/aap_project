@@ -30,7 +30,6 @@
         {
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.SuspendLayout();
- 
             // 
             // webBrowser1
             // 
@@ -51,6 +50,7 @@
             this.Controls.Add(this.webBrowser1);
             this.Name = "FacebookLogin";
             this.Text = "FacebookLogin";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FacebookLogin_FormClosing);
             this.Load += new System.EventHandler(this.FacebookLogin_Load);
             this.ResumeLayout(false);
 
