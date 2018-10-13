@@ -48,6 +48,12 @@
   <ItemGroup>
     <Compile Include="ChangeDatabase.cs" />
     <Compile Include="GetUserInfo.cs" />
+    <Compile Include="Matches.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Matches.Designer.cs">
+      <DependentUpon>Matches.cs</DependentUpon>
+    </Compile>
     <Compile Include="Options.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +94,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Matches.resx">
+      <DependentUpon>Matches.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Options.resx">
       <DependentUpon>Options.cs</DependentUpon>
@@ -139,7 +148,9 @@
     <Content Include="Resources\DefaultAccountPic\female.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Resources\Matches\" />
     <Folder Include="Resources\ProfilePictures\" />
+    <Folder Include="Resources\Users\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -2,16 +2,19 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DateSeer
 {
     public class User
     {
-        private int genre;
+        private int Id;
+        private int gender;
         private string email;
         private string username;
         private string password;
@@ -20,13 +23,13 @@ namespace DateSeer
 
        
 
-        public User(string gotUsername, string gotPassword, string gotEmail, string gotName, int gotGenre)//used for register form
+        public User(string gotUsername, string gotPassword, string gotEmail, string gotName, int gotGender)//used for register form
         {
             this.email = gotEmail;
             this.username = gotUsername;
             this.password = gotPassword;
             this.name = gotName;
-            this.genre = gotGenre;
+            this.gender = gotGender;
         }
 
         internal void setImage(string path)
@@ -46,10 +49,33 @@ namespace DateSeer
             GetUserInfo get = new GetUserInfo(username);
             this.name = get.getName();
             this.email = get.getEmail();
-            this.genre = get.getGenre();
+            this.gender = get.getGender();
             this.image = get.getImage();
+            this.Id = get.getId();
+         
         }
+        public void GetUserInfoByGender(int gender)
+        {
+            GetUserInfo get = new GetUserInfo(gender);
+            this.name = get.getName();
+            this.email = get.getEmail();
+            this.gender = get.getGender();
+            this.image = get.getImage();
+            this.Id = get.getId();
+           
 
+        }
+        public void CreateFile(string path)
+        {
+            if (!File.Exists(path))
+            {
+                File.Create(path);
+            }
+        }
+        public int getId()
+        {
+            return Id;
+        }
         public string getImage()
         {
             return image;
@@ -70,9 +96,9 @@ namespace DateSeer
         {
             return password;
         }
-        public int getGenre()
+        public int getGender()
         {
-            return genre;
+            return gender;
         }
     }
 

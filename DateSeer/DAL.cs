@@ -60,7 +60,7 @@ namespace DateSeer
             string password = user.getpassword();
             string email = user.getemail();
             string name = user.getUsername();
-            int genre = user.getGenre();
+            int gender = user.getGender();
             //create sql params
             List<SqlParameter> sqlParams = new List<SqlParameter>();
             List<SqlParameter> checkParams = new List<SqlParameter>();
@@ -75,7 +75,7 @@ namespace DateSeer
                 sqlParams.Add(new SqlParameter("Email", email));
                 sqlParams.Add(new SqlParameter("Username", username));
                 sqlParams.Add(new SqlParameter("Password", savedPasswordHash));
-                sqlParams.Add(new SqlParameter("Genre", genre));
+                sqlParams.Add(new SqlParameter("Gender", gender));
                 executeStoredProcedure("AddUser", sqlParams);
             }
             else
