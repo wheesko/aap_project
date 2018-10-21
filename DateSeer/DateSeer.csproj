@@ -102,6 +102,7 @@
     <Compile Include="Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
+    <Compile Include="Validation.cs" />
     <EmbeddedResource Include="FacebookLogin.resx">
       <DependentUpon>FacebookLogin.cs</DependentUpon>
     </EmbeddedResource>

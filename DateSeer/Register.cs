@@ -35,51 +35,58 @@ namespace DateSeer
 
         private void button1_Click(object sender, EventArgs e)
         {
-            // Save today's date.
-            var today = DateTime.Today;
-            // Calculate the age.
-            var age = today.Year - dateTimePicker1.Value.Year;
-            // Go back to the year the person was born in case of a leap year
-            if (dateTimePicker1.Value > today.AddYears(-age)) age--;
-            if (textBox1.Text != "" && textBox2.Text != "" && textBox3.Text != "" && textBox4.Text != "Enter your password" && textBox5.Text != "Reapet your password" &&(MaleBox.Checked == true || FemaleBox.Checked ==true))
+
+            /*   // Save today's date.
+               var today = DateTime.Today;
+               // Calculate the age.
+               var age = today.Year - dateTimePicker1.Value.Year;
+               // Go back to the year the person was born in case of a leap year
+               if (dateTimePicker1.Value > today.AddYears(-age)) age--;
+               if (textBox1.Text != "" && textBox2.Text != "" && textBox3.Text != "" && textBox4.Text != "Enter your password" && textBox5.Text != "Repeat your password" &&(MaleBox.Checked == true || FemaleBox.Checked ==true))
+               {
+                   if (age >= 18) {
+                       if (textBox4.Text == textBox5.Text)
+                       {*/
+            var validationResult = Validation.validateRegistrationForm(name: textBox1.Text, username: textBox3.Text, repeatedPass: textBox5.Text, email: textBox2.Text, gotAge: dateTimePicker1.Value, female: FemaleBox, male: MaleBox, pass: textBox4.Text);
+            if (validationResult == "")
             {
-                if (age >= 18) {
-                    if (textBox4.Text == textBox5.Text)
-                    {
-                        int gender1 = 0;
-                        if (MaleBox.Checked == true) { gender1 = 1; }
-                        if (FemaleBox.Checked == true) { gender1 = 2; }
-                        User registeringUser = new User(textBox3.Text, textBox4.Text, textBox2.Text, textBox1.Text, dateTimePicker1.Value.ToString(), gender1);
-                        try
-                        {
-                            DAL.CreateUser(registeringUser);
-                            this.Hide();
-                            Login LoginBack = new Login();
-                            LoginBack.Show();
+                int gender1 = 0;
+                if (MaleBox.Checked == true) { gender1 = 1; }
+                if (FemaleBox.Checked == true) { gender1 = 2; }
+                User registeringUser = new User(textBox3.Text, textBox4.Text, textBox2.Text, textBox1.Text, dateTimePicker1.Value.ToString(), gender1);
+                try
+                {
+                    DAL.CreateUser(registeringUser);
+                    this.Hide();
+                    Login LoginBack = new Login();
+                    LoginBack.Show();
+                }
+                catch (Exception ex)
+                {
 
-                        }
-                        catch (Exception ex)
-                        {
+                    textBox1.ForeColor = Color.Silver;
+                    textBox2.ForeColor = Color.Silver;
+                    textBox3.ForeColor = Color.Silver;
+                    textBox4.ForeColor = Color.Silver;
+                    textBox5.ForeColor = Color.Silver;
 
-                            textBox1.ForeColor = Color.Silver;
-                            textBox2.ForeColor = Color.Silver;
-                            textBox3.ForeColor = Color.Silver;
-                            textBox4.ForeColor = Color.Silver;
-                            textBox5.ForeColor = Color.Silver;
+                    textBox1.Text = "Enter your name";
+                    textBox2.Text = "Enter your email";
+                    textBox3.Text = "Enter your username";
 
-                            textBox1.Text = "Enter your name";
-                            textBox2.Text = "Enter your email";
-                            textBox3.Text = "Enter your username";
+                    textBox4.PasswordChar = '\0';
+                    textBox5.PasswordChar = '\0';
+                    textBox4.Text = "Enter your password";
+                    textBox5.Text = "Repeat your password";
 
-                            textBox4.PasswordChar = '\0';
-                            textBox5.PasswordChar = '\0';
-                            textBox4.Text = "Enter your password";
-                            textBox5.Text = "Repeat your password";
-
-                            MessageBox.Show("Username or Email already taken");
-                        }
-
-                    }
+                    MessageBox.Show("Username or Email already taken");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Following errors occured: " + Environment.NewLine + validationResult);
+            }
+                    /*}
                     else
                     {
                         textBox4.PasswordChar = '\0';
@@ -101,7 +108,7 @@ namespace DateSeer
             else
             {
                 MessageBox.Show("Some fields are empty");
-            }
+            }*/
         }
 
         private void label5_Click(object sender, EventArgs e)

@@ -11,14 +11,14 @@ namespace DateSeer
 {
     public class User
     {
-        private int gender;
-        private string email;
-        private string username;
-        private string password;
-        private string name;
-        private string image;
-        private string facebookID;
-        private string birthdate;
+        public int gender { get; set; }
+        public string email { get; set; }
+        public string username { get; set; }
+        public string password { get; set; }
+        public string name { get; set; }
+        public string image { get; set; }
+        public string facebookID { get; set; }
+        public string birthdate { get; set; }
 
 
         public User(string gotUsername, string gotPassword, string gotEmail, string gotName, string gotBirthdate, int gotGender)//used for register form
@@ -62,38 +62,6 @@ namespace DateSeer
             this.image = get.getImage();
         }
 
-        public string getImage()
-        {
-            return image;
-        }
-        public string getName()
-        {
-            return name;
-        }
-        public string getemail()
-        {
-            return email;
-        }
-        public string getUsername()
-        {
-            return username;
-        }
-        public string getpassword()
-        {
-            return password;
-        }
-        public int getGender()
-        {
-            return gender;
-        }
-        public string getBirthday()
-        {
-            return birthdate;
-        }
-        public string getFacebookID()
-        {
-            return facebookID;
-        }
     }
 
     }

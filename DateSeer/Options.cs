@@ -36,13 +36,13 @@ namespace DateSeer
 
         private void Option_Load()
         {
-            UserName.Text = MainUser.getName();
+            UserName.Text = MainUser.name;
             string PathR = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
             PathR = Path.Combine(PathR, "Resources");
             PathR = Path.Combine(PathR, "DefaultAccountPic");
-            if (MainUser.getImage() == "")
+            if (MainUser.image == "")
             {
-                if (MainUser.getGender() == 1)
+                if (MainUser.gender == 1)
                 {
 
                     Image image = Image.FromFile(PathR + @"\male.png");
@@ -61,7 +61,7 @@ namespace DateSeer
             {
                 try
                 {
-                    Image image = Image.FromFile(MainUser.getImage());
+                    Image image = Image.FromFile(MainUser.image);
                     pictureBox1.Image = image;
                 }
                 catch (Exception ex) { }
