@@ -16,7 +16,7 @@ namespace DateSeer
         public string username { get; set; }
         public string password { get; set; }
         public string name { get; set; }
-        public string image { get; set; }
+        public string image { get { return this.image; } set { image = value; } }
         public string facebookID { get; set; }
         public string birthdate { get; set; }
 

@@ -36,18 +36,7 @@ namespace DateSeer
         private void button1_Click(object sender, EventArgs e)
         {
 
-            /*   // Save today's date.
-               var today = DateTime.Today;
-               // Calculate the age.
-               var age = today.Year - dateTimePicker1.Value.Year;
-               // Go back to the year the person was born in case of a leap year
-               if (dateTimePicker1.Value > today.AddYears(-age)) age--;
-               if (textBox1.Text != "" && textBox2.Text != "" && textBox3.Text != "" && textBox4.Text != "Enter your password" && textBox5.Text != "Repeat your password" &&(MaleBox.Checked == true || FemaleBox.Checked ==true))
-               {
-                   if (age >= 18) {
-                       if (textBox4.Text == textBox5.Text)
-                       {*/
-            var validationResult = Validation.validateRegistrationForm(name: textBox1.Text, username: textBox3.Text, repeatedPass: textBox5.Text, email: textBox2.Text, gotAge: dateTimePicker1.Value, female: FemaleBox, male: MaleBox, pass: textBox4.Text);
+            var validationResult = new Validation().validateRegistrationForm(name: textBox1.Text, username: textBox3.Text, repeatedPass: textBox5.Text, email: textBox2.Text, gotAge: dateTimePicker1.Value, female: FemaleBox.Checked, male: MaleBox.Checked, pass: textBox4.Text);
             if (validationResult == "")
             {
                 int gender1 = 0;
@@ -86,29 +75,7 @@ namespace DateSeer
             {
                 MessageBox.Show("Following errors occured: " + Environment.NewLine + validationResult);
             }
-                    /*}
-                    else
-                    {
-                        textBox4.PasswordChar = '\0';
-                        textBox5.PasswordChar = '\0';
-
-                        textBox4.ForeColor = Color.Silver;
-                        textBox5.ForeColor = Color.Silver;
-
-                        textBox4.Text = "Enter your password";
-                        textBox5.Text = "Repeat your password";
-                        MessageBox.Show("Passwords did not match");
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("You are under 18!");
-                }
-            }
-            else
-            {
-                MessageBox.Show("Some fields are empty");
-            }*/
+         
         }
 
         private void label5_Click(object sender, EventArgs e)
