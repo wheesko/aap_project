@@ -65,6 +65,15 @@ namespace DateSeer
            
 
         }
+        public void GetUserInfoByID(int id)
+        {
+            GetUserInfo get = new GetUserInfo(id, 0);
+            this.name = get.getName();
+            this.email = get.getEmail();
+            this.gender = get.getGender();
+            this.image = get.getImage();
+            this.Id = get.getId();
+        }
         public void CreateFile(string path)
         {
             if (!File.Exists(path))

@@ -110,6 +110,44 @@ namespace DateSeer
             }
 
         }
+        public GetUserInfo(int id, int v)
+        {
+            string strConn = "Server=" + Environment.MachineName + "\\SQLEXPRESS;Database=Login_data;Trusted_Connection=True";
+            string sql = "SELECT * FROM dbo.logins_table WHERE ID ='" + id + "';";
+
+            SqlConnection con = new SqlConnection();
+            DataTable dt = new DataTable();
+            try
+            {
+                con = new SqlConnection(strConn);
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand(sql, con);
+
+                SqlCommand command = con.CreateCommand();
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                dt.Load(dr);
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            Name = dt.Rows[0]["Name"].ToString();
+            Email = dt.Rows[0]["Email"].ToString();
+            Gender = int.Parse(dt.Rows[0]["Gender"].ToString());
+            Image = dt.Rows[0]["ImageName"].ToString();
+            id = int.Parse(dt.Rows[0]["ID"].ToString());
+
+
+
+        }
         public int getId()
         {
             return id;

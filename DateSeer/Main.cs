@@ -47,69 +47,84 @@ namespace DateSeer
             {
                 Usern.GetUserInfoByGender(1);
             }
-            string name = Usern.getName().ToString();
-    
-           label2.Text = name;
-            string PathR = GetResourcesPath();
-            PathR = Path.Combine(PathR, "DefaultAccountPic");
-            if (Usern.getImage() == "")
+            string name; ;
+            if (Usern.getName() == null)
             {
-                if (MainUser.getGender() == 1)
+                string pathg = GetResourcesPath();
+                pathg = Path.Combine(pathg + @"\NoMore.png");
+                Image image = Image.FromFile(pathg);
+                UsernPic.Image = image;
+                label2.Text = "";
+
+            }
+            else
+            {
+                name = Usern.getName().ToString();
+                label2.Text = name;
+                string PathR = GetResourcesPath();
+                PathR = Path.Combine(PathR, "DefaultAccountPic");
+                if (Usern.getImage() == "")
                 {
-                  
+                    if (Usern.getGender() == 1)
+                    {
+
                         Image image = Image.FromFile(PathR + @"\male.png");
                         UsernPic.Image = image;
-                  
+
+                    }
+                    else
+                    {
+                        Image image = Image.FromFile(PathR + @"\female.jpg");
+                        UsernPic.Image = image;
+
+                    }
+
                 }
                 else
                 {
-                    Image image = Image.FromFile(PathR + @"\female.jpg");
+                    Image image = Image.FromFile(Usern.getImage());
                     UsernPic.Image = image;
-
                 }
-
-            }else
-            {
-                Image image = Image.FromFile(Usern.getImage());
-                UsernPic.Image = image;
             }
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            int id = Usern.getId();
-            int main = MainUser.getId();
-            ChangeDatabase insert = new ChangeDatabase(main, id);
-            string PathR = GetResourcesPath();
-            PathR = Path.Combine(PathR, "Users");
-            PathR = PathR + @"\" + MainUser.getName() + ".txt";
+            if (Usern.getName() != null)
+            {
+                int id = Usern.getId();
+                int main = MainUser.getId();
+                ChangeDatabase insert = new ChangeDatabase(main, id);
+                string PathR = GetResourcesPath();
+                PathR = Path.Combine(PathR, "Users");
+                PathR = PathR + @"\" + MainUser.getName() + ".txt";
 
-            TextWriter tw = new StreamWriter(PathR);
-            tw.WriteLine(Usern.getId());
-            tw.Close();
-            PathR = "";
-            PathR = GetResourcesPath();
-            PathR = Path.Combine(PathR, "Users");
-            PathR = PathR + @"\" + Usern.getName() + ".txt";
-            string c = main.ToString();
-            if (!File.Exists(PathR))
-            {
-                File.Create(PathR);
-            }
-            using (StreamReader sr = File.OpenText(PathR))
-            {
-                string s = String.Empty;
-                while ((s = sr.ReadLine()) != null)
+                TextWriter tw = new StreamWriter(PathR);
+                tw.WriteLine(Usern.getId());
+                tw.Close();
+                PathR = "";
+                PathR = GetResourcesPath();
+                PathR = Path.Combine(PathR, "Users");
+                PathR = PathR + @"\" + Usern.getName() + ".txt";
+                string c = main.ToString();
+                if (!File.Exists(PathR))
                 {
-                    if(s == c)
+                    File.Create(PathR);
+                }
+                using (StreamReader sr = File.OpenText(PathR))
+                {
+                    string s = String.Empty;
+                    while ((s = sr.ReadLine()) != null)
                     {
-                        matched();
+                        if (s == c)
+                        {
+                            matched();
+                        }
                     }
                 }
+
+                Load_User();
+
             }
-
-            Load_User();
-
-
         }
 
         private void matched()
@@ -146,10 +161,13 @@ namespace DateSeer
 
         private void button2_Click(object sender, EventArgs e)
         {
-            int id = Usern.getId();
-            int main = MainUser.getId();
-            ChangeDatabase insert = new ChangeDatabase(main, id);
-            Load_User();
+            if (Usern.getName() != null)
+            {
+                int id = Usern.getId();
+                int main = MainUser.getId();
+                ChangeDatabase insert = new ChangeDatabase(main, id);
+                Load_User();
+            }
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
