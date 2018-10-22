@@ -15,7 +15,7 @@ namespace DateSeer
     {
         private string Name ;
         private string Email;
-        private int Genre;
+        private int Gender;
         private String Image;
 
 
@@ -50,7 +50,7 @@ namespace DateSeer
             
            Name = dt.Rows[0]["Name"].ToString();
             Email = dt.Rows[0]["Email"].ToString();
-            Genre = int.Parse(dt.Rows[0]["Genre"].ToString());
+            Gender = int.Parse(dt.Rows[0]["Gender"].ToString());
             Image = dt.Rows[0]["ImageName"].ToString();
           
            
@@ -61,9 +61,9 @@ namespace DateSeer
             return Name;
         }
 
-        public int getGenre()
+        public int getGender()
         {
-            return Genre;
+            return Gender;
         }
         public string getImage()
         {

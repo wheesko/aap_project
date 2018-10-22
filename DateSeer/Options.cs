@@ -25,6 +25,8 @@ namespace DateSeer
 
         private void label3_Click(object sender, EventArgs e)
         {
+            Register newregister = new Register();
+          
             Upload photo = new Upload();
            ChangeDatabase change = new ChangeDatabase(photo.getPathR(), MainUser);
             MainUser.setImage(photo.getPathR());
@@ -34,13 +36,13 @@ namespace DateSeer
 
         private void Option_Load()
         {
-            UserName.Text = MainUser.getName();
+            UserName.Text = MainUser.name;
             string PathR = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
             PathR = Path.Combine(PathR, "Resources");
             PathR = Path.Combine(PathR, "DefaultAccountPic");
-            if (MainUser.getImage() == "")
+            if (MainUser.image == "")
             {
-                if (MainUser.getGenre() == 1)
+                if (MainUser.gender == 1)
                 {
 
                     Image image = Image.FromFile(PathR + @"\male.png");
@@ -57,8 +59,14 @@ namespace DateSeer
             }
             else
             {
-                Image image = Image.FromFile(MainUser.getImage());
-                pictureBox1.Image = image;
+                try
+                {
+                    Image image = Image.FromFile(MainUser.image);
+                    pictureBox1.Image = image;
+                }
+                catch (Exception ex) { }
+
+                    
             }
         }
 

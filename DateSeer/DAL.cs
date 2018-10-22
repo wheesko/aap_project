@@ -56,11 +56,12 @@ namespace DateSeer
         public static void CreateUser(User user)
         {
             //get params from user class
-            string username = user.getUsername();
-            string password = user.getpassword();
-            string email = user.getemail();
-            string name = user.getUsername();
-            int genre = user.getGenre();
+            string username = user.username;
+            string password = user.password;
+            string email = user.email;
+            string name = user.name;
+            int gender = user.gender;
+            string birthday = user.birthdate.ToString();
             //create sql params
             List<SqlParameter> sqlParams = new List<SqlParameter>();
             List<SqlParameter> checkParams = new List<SqlParameter>();
@@ -75,7 +76,8 @@ namespace DateSeer
                 sqlParams.Add(new SqlParameter("Email", email));
                 sqlParams.Add(new SqlParameter("Username", username));
                 sqlParams.Add(new SqlParameter("Password", savedPasswordHash));
-                sqlParams.Add(new SqlParameter("Genre", genre));
+                sqlParams.Add(new SqlParameter("Gender", gender));
+                sqlParams.Add(new SqlParameter("Birthday", birthday));
                 executeStoredProcedure("AddUser", sqlParams);
             }
             else
@@ -86,8 +88,8 @@ namespace DateSeer
         public static bool CompareToHash(User user)
         {
             //get from user class
-            string gotUsernameString = user.getUsername();
-            string gotPassString = user.getpassword();
+            string gotUsernameString = user.username;
+            string gotPassString = user.password;
             //find user by username
             List<SqlParameter> sqlParams = new List<SqlParameter>();
             sqlParams.Add(new SqlParameter("Username", gotUsernameString));
@@ -110,6 +112,38 @@ namespace DateSeer
             {
                 return false;
             }
+        }
+        public static void checkforFacebook(User user)
+        {
+           
+            List<SqlParameter> checkParams = new List<SqlParameter>();
+            List<SqlParameter> sqlParams = new List<SqlParameter>();
+            //stage check params
+            checkParams.Add(new SqlParameter("Username", user.username));
+            checkParams.Add(new SqlParameter("Email", user.email));
+            DataTable dt = executeStoredProcedure("GetByEmailOrUsername", checkParams);
+            if (dt.Rows.Count == 0)//user not created and first time logging in
+            {
+                sqlParams.Add(new SqlParameter("Name", user.name));
+                sqlParams.Add(new SqlParameter("Email", user.email));
+                sqlParams.Add(new SqlParameter("Username", " "));
+                sqlParams.Add(new SqlParameter("Password", " "));
+                sqlParams.Add(new SqlParameter("Gender", user.gender));
+                sqlParams.Add(new SqlParameter("Birthday", user.birthdate.ToString()));
+                sqlParams.Add(new SqlParameter("FacebookID", user.facebookID));
+                executeStoredProcedure("AddUser", sqlParams);
+            }
+            else if (dt.Rows.Count == 1 && (dt.Rows[0]["FacebookID"].ToString() == "0" || dt.Rows[0]["FacebookID"] == null))//user created, logging in with facebook
+            {
+                sqlParams.Add(new SqlParameter("FacebookID", user.facebookID));
+                sqlParams.Add(new SqlParameter("Email", user.email));
+                executeStoredProcedure("UpdateFacebookID", sqlParams);
+            }
+            else //user created and has facebookID
+            {
+                return;
+            }
+           
         }
 
     }
