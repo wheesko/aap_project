@@ -17,6 +17,8 @@ namespace DateSeer
         private int brake;
         private List<User> matched;
         private List<string> names;
+        private List<User> tempw;
+        private List<User> temp1;
 
         public Matches(User MainUser)
         {
@@ -58,7 +60,14 @@ namespace DateSeer
                 }
                 brake = 0;
 
-            }else
+                tempw = new List<User>();
+
+                foreach (User match in matched)
+                {
+                    tempw.Add(match);
+                }
+            }
+            else
             {
                 File.Create(pathg);
                 Loader();
@@ -93,6 +102,15 @@ namespace DateSeer
                 label6.Text = person.getemail();
                 Image img = Image.FromFile(UploadPhoto(person));
                 pictureBox2.Image = img;
+
+                label3.Text = null;
+                label7.Text = null;
+                pictureBox3.Image = null;
+
+                label4.Text = null;
+                label8.Text = null;
+
+                pictureBox4.Image = null;
             }
             else if (brake1 == 2)
             {
@@ -100,6 +118,11 @@ namespace DateSeer
                 label7.Text = person.getemail();
                 Image img = Image.FromFile(UploadPhoto(person));
                 pictureBox3.Image = img;
+
+                label4.Text = null;
+                label8.Text = null;
+
+                pictureBox4.Image = null;
             }
             else if (brake1 == 3)
             {
@@ -217,31 +240,43 @@ namespace DateSeer
            {
                 if (textBox1.Text != "")
                 {
-                    var searched = from s in names
-                                   where s.Contains(textBox1.Text)
-                                   select s;
-                    string[] arr = new string[4] { "", "", "", "" };
-                    int c = 0;
-                    foreach (var i in searched)
-                    {
 
-                        arr[c] = i;
-                        if (c < 3)
-                        c++;
+                    temp1 = new List<User>();
+                    var searched = from person in matched
+                                   where person.getName().Contains(textBox1.Text) 
+                                   select person;
+
+                    foreach (User person in searched)
+                    {
+                        
+                        temp1.Add(person);
+
+                    }
+                    matched.Clear();
+                    
+                    foreach(User us in temp1)
+                    {
+                      
+                        matched.Add(us);
                     }
 
-                    for (int j = 0; j < 4; j++)
+                    int brake = 0;
+                    foreach (User userz in matched)
                     {
-                        if (arr[j] != "")
-                        {
-                            User us = new User(arr[j], null);
-                            us.GetUserInfoByUsername();
-                            UploadUser(us, j);
-                        }
+                       
+                        UploadUser(userz, brake);
+                        brake++;
                     }
+                    brake = 0;
+
                 }
                 else
                 {
+                    matched.Clear();
+                    foreach (User u in tempw)
+                    {
+                        matched.Add(u);
+                    }
                     int temp = brake;
                     foreach (User person in matched)
                     {
