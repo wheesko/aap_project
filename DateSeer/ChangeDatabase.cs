@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DateSeer
 {
@@ -61,8 +62,10 @@ namespace DateSeer
             }
             finally
             {
+                MessageBox.Show(MainId + " " + Id );
                 con.Close();
             }
+
         }
     }
 }

@@ -58,21 +58,14 @@ namespace DateSeer
 
 
         }
-        public GetUserInfo(int gender)
+        public GetUserInfo(int gender, int id, int z)
         {
             string strConn = "Server=" + Environment.MachineName + "\\SQLEXPRESS;Database=Login_data;Trusted_Connection=True";
             string sql = @"With nereikalingi As (
             SELECT dbo.UsedIDs.UsedID AS 'ID'
             FROM dbo.logins_table INNER JOIN
             dbo.UsedIDs ON dbo.logins_table.ID = dbo.UsedIDs.UsedID
-            Where dbo.UsedIDs.ID = 1),
-            Reikalingi AS(
-            Select ID From dbo.logins_table
-            EXCEPT
-            Select ID From nereikalingi)
-            Select top 1 * from dbo.logins_table JOIN Reikalingi on
-            Reikalingi.ID = dbo.logins_table.id
-            Where Gender ="+gender;
+            Where dbo.UsedIDs.ID = "+id+"),Reikalingi AS( Select ID From dbo.logins_table        EXCEPT        Select ID From nereikalingi)       Select top 1 * from dbo.logins_table JOIN Reikalingi   ON    Reikalingi.ID = dbo.logins_table.id      Where Gender ="+gender;
             SqlConnection cdon = new SqlConnection();
             DataTable dt = new DataTable();
             try
@@ -103,6 +96,7 @@ namespace DateSeer
                 Gender = int.Parse(dt.Rows[0]["Gender"].ToString());
                 Image = dt.Rows[0]["ImageName"].ToString();
                 id = int.Parse(dt.Rows[0]["ID"].ToString());
+                MessageBox.Show(Name);
             }
             catch (Exception ex)
             {

@@ -23,7 +23,11 @@ namespace DateSeer
             string path = GetResourcesPath();
             path = Path.Combine(path,"Users");
             path = path + @"\" + MainUser.getName() + ".txt";
-            MainUser.CreateFile(path);
+            if (File.Exists(path)) { }
+            else
+            {
+                MainUser.CreateFile(path);
+            }
             InitializeComponent();
             Load_User();
         }
@@ -41,12 +45,14 @@ namespace DateSeer
            
             if (MainUser.getGender() == 1)
             {
-                Usern.GetUserInfoByGender(2);
+                Usern.GetUserInfoByGender(2,MainUser.getId());
             }
             else
             {
-                Usern.GetUserInfoByGender(1);
+                Usern.GetUserInfoByGender(1,MainUser.getId());
             }
+            MessageBox.Show(MainUser.getId().ToString());
+          
             string name; ;
             if (Usern.getName() == null)
             {
@@ -88,10 +94,11 @@ namespace DateSeer
             }
         }
         private void button1_Click(object sender, EventArgs e)
-        {
-            if (Usern.getName() != null)
+        { 
+           if (Usern.getName() != null)
             {
                 int id = Usern.getId();
+                MessageBox.Show(id.ToString());
                 int main = MainUser.getId();
                 ChangeDatabase insert = new ChangeDatabase(main, id);
                 string PathR = GetResourcesPath();
@@ -99,6 +106,7 @@ namespace DateSeer
                 PathR = PathR + @"\" + MainUser.getName() + ".txt";
 
                 TextWriter tw = new StreamWriter(PathR);
+                tw.WriteLine();
                 tw.WriteLine(Usern.getId());
                 tw.Close();
                 PathR = "";
@@ -124,7 +132,7 @@ namespace DateSeer
 
                 Load_User();
 
-            }
+           }
         }
 
         private void matched()

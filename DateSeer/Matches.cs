@@ -58,6 +58,9 @@ namespace DateSeer
                 }
                 brake = 0;
 
+            }else
+            {
+
             }
 
         }

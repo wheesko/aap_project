@@ -54,14 +54,15 @@ namespace DateSeer
             this.Id = get.getId();
          
         }
-        public void GetUserInfoByGender(int gender)
+        public void GetUserInfoByGender(int gender,int ids)
         {
-            GetUserInfo get = new GetUserInfo(gender);
+            GetUserInfo get = new GetUserInfo(gender,ids,0);
             this.name = get.getName();
             this.email = get.getEmail();
             this.gender = get.getGender();
             this.image = get.getImage();
             this.Id = get.getId();
+          
            
 
         }
