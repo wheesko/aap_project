@@ -13,7 +13,7 @@ namespace DateSeer
 {
     public partial class Options : Form
     {
-        public User MainUser;
+        private User MainUser;
 
         public Options(User MainUser)
         {
@@ -40,9 +40,11 @@ namespace DateSeer
             string PathR = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
             PathR = Path.Combine(PathR, "Resources");
             PathR = Path.Combine(PathR, "DefaultAccountPic");
-            if (MainUser.image == "")
+            if (MainUser.getImage() == "")
             {
+
                 if (MainUser.gender == 1)
+
                 {
 
                     Image image = Image.FromFile(PathR + @"\male.png");
@@ -61,7 +63,7 @@ namespace DateSeer
             {
                 try
                 {
-                    Image image = Image.FromFile(MainUser.image);
+                    Image image = Image.FromFile(MainUser.getImage());
                     pictureBox1.Image = image;
                 }
                 catch (Exception ex) { }

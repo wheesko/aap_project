@@ -2,23 +2,27 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DateSeer
 {
     public class User
     {
+        public int Id { get; set; }
         public int gender { get; set; }
         public string email { get; set; }
         public string username { get; set; }
         public string password { get; set; }
         public string name { get; set; }
-        public string image { get { return this.image; } set { image = value; } }
+        private string image;
         public string facebookID { get; set; }
         public string birthdate { get; set; }
+
 
 
         public User(string gotUsername, string gotPassword, string gotEmail, string gotName, string gotBirthdate, int gotGender)//used for register form
@@ -60,8 +64,46 @@ namespace DateSeer
             this.email = get.getEmail();
             this.gender = get.getGender();
             this.image = get.getImage();
+            this.Id = get.getId();
+         
         }
+        public void GetUserInfoByGender(int gender,int ids)
+        {
+            GetUserInfo get = new GetUserInfo(gender,ids,0);
+            this.name = get.getName();
+            this.email = get.getEmail();
+            this.gender = get.getGender();
+            this.image = get.getImage();
+            this.Id = get.getId();
+          
+           
 
+        }
+        public void GetUserInfoByID(int id)
+        {
+            GetUserInfo get = new GetUserInfo(id, 0);
+            this.name = get.getName();
+            this.email = get.getEmail();
+            this.gender = get.getGender();
+            this.image = get.getImage();
+            this.Id = get.getId();
+        }
+        public void CreateFile(string path)
+        {
+            if (!File.Exists(path))
+            {
+                File.Create(path);
+            }
+        }
+        public int getId()
+        {
+            return Id;
+        }
+        public string getImage()
+        {
+            return image;
+        }
+      
     }
 
     }

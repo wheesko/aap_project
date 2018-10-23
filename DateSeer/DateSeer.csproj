@@ -48,6 +48,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -67,6 +68,12 @@
       <DependentUpon>FacebookLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="GetUserInfo.cs" />
+    <Compile Include="Matches.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Matches.Designer.cs">
+      <DependentUpon>Matches.cs</DependentUpon>
+    </Compile>
     <Compile Include="Options.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +118,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Matches.resx">
+      <DependentUpon>Matches.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Options.resx">
       <DependentUpon>Options.cs</DependentUpon>
@@ -161,9 +171,12 @@
   <ItemGroup>
     <Content Include="Resources\DefaultAccountPic\male.png" />
     <Content Include="Resources\DefaultAccountPic\female.jpg" />
+    <Content Include="Resources\NoMore.png" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Resources\Matches\" />
     <Folder Include="Resources\ProfilePictures\" />
+    <Folder Include="Resources\Users\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

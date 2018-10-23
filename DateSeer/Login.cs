@@ -90,7 +90,7 @@ namespace DateSeer
                     this.Hide();
                     Main main = new Main(loginUser);
                     main.Show();
-                    MessageBox.Show("Logged in");
+                  
                 }
                 else
                 {

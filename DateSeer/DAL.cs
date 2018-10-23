@@ -56,6 +56,11 @@ namespace DateSeer
         public static void CreateUser(User user)
         {
             //get params from user class
+            /*string username = user.getUsername();
+            string password = user.getpassword();
+            string email = user.getemail();
+            string name = user.getUsername();
+            int gender = user.getGender();*/
             string username = user.username;
             string password = user.password;
             string email = user.email;
