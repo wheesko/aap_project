@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28010.2026
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DateSeer", "DateSeer\DateSeer.csproj", "{ED7F94A4-2B2C-4854-AFB9-5189189542F5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DateSeerTests", "UnitTestProject3\DateSeerTests.csproj", "{360CD20F-C706-4C29-A1C2-7622EE68CE8A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{ED7F94A4-2B2C-4854-AFB9-5189189542F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ED7F94A4-2B2C-4854-AFB9-5189189542F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ED7F94A4-2B2C-4854-AFB9-5189189542F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{360CD20F-C706-4C29-A1C2-7622EE68CE8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{360CD20F-C706-4C29-A1C2-7622EE68CE8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{360CD20F-C706-4C29-A1C2-7622EE68CE8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{360CD20F-C706-4C29-A1C2-7622EE68CE8A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

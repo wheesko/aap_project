@@ -14,7 +14,7 @@ namespace DateSeer
         public ChangeDatabase(string picturePath, User user)
         {
             string strConn = "Server=" + Environment.MachineName + "\\SQLEXPRESS;Database=Login_data;Trusted_Connection=True";
-            string sql = "UPDATE dbo.logins_table SET ImageName ='" + picturePath + "'WHERE Username='" + user.getUsername() + "'";
+            string sql = "UPDATE dbo.logins_table SET ImageName ='" + picturePath + "'WHERE Username='" + user.username + "'";
 
             SqlConnection con = new SqlConnection();
 

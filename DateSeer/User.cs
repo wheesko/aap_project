@@ -13,25 +13,38 @@ namespace DateSeer
 {
     public class User
     {
-        private int Id;
-        private int gender;
-        private string email;
-        private string username;
-        private string password;
-        private string name;
+        public int Id { get; set; }
+        public int gender { get; set; }
+        public string email { get; set; }
+        public string username { get; set; }
+        public string password { get; set; }
+        public string name { get; set; }
         private string image;
+        public string facebookID { get; set; }
+        public string birthdate { get; set; }
 
-       
 
-        public User(string gotUsername, string gotPassword, string gotEmail, string gotName, int gotGender)//used for register form
+
+        public User(string gotUsername, string gotPassword, string gotEmail, string gotName, string gotBirthdate, int gotGender)//used for register form
         {
             this.email = gotEmail;
             this.username = gotUsername;
             this.password = gotPassword;
             this.name = gotName;
             this.gender = gotGender;
+            this.facebookID = null;
+            this.birthdate = gotBirthdate;
         }
-
+        public User(string gotEmail, string gotName, string gotfacebookID, string gotBirthdate, int gotGender)//used for login with facebook
+        {
+            this.username = " ";
+            this.password = " ";
+            this.name = gotName;
+            this.email = gotEmail;
+            this.facebookID = gotfacebookID;
+            this.birthdate = gotBirthdate;
+            this.gender = gotGender;
+        }
         internal void setImage(string path)
         {
             image = path;
@@ -90,26 +103,7 @@ namespace DateSeer
         {
             return image;
         }
-        public string getName()
-        {
-            return name;
-        }
-        public string getemail()
-        {
-            return email;
-        }
-        public string getUsername()
-        {
-            return username;
-        }
-        public string getpassword()
-        {
-            return password;
-        }
-        public int getGender()
-        {
-            return gender;
-        }
+      
     }
 
     }

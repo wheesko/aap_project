@@ -22,7 +22,7 @@ namespace DateSeer
             MainUser.GetUserInfoByUsername();
             string path = GetResourcesPath();
             path = Path.Combine(path,"Users");
-            path = path + @"\" + MainUser.getName() + ".txt";
+            path = path + @"\" + MainUser.name + ".txt";
             if (File.Exists(path)) { }
             else
             {
@@ -43,7 +43,7 @@ namespace DateSeer
         {
             Usern = new User(null, null);
            
-            if (MainUser.getGender() == 1)
+            if (MainUser.gender == 1)
             {
                 Usern.GetUserInfoByGender(2,MainUser.getId());
             }
@@ -54,7 +54,7 @@ namespace DateSeer
           
           
             string name; ;
-            if (Usern.getName() == null)
+            if (Usern.name == null)
             {
                 string pathg = GetResourcesPath();
                 pathg = Path.Combine(pathg + @"\NoMore.png");
@@ -65,13 +65,13 @@ namespace DateSeer
             }
             else
             {
-                name = Usern.getName().ToString();
+                name = Usern.name.ToString();
                 label2.Text = name;
                 string PathR = GetResourcesPath();
                 PathR = Path.Combine(PathR, "DefaultAccountPic");
                 if (Usern.getImage() == "")
                 {
-                    if (Usern.getGender() == 1)
+                    if (Usern.gender == 1)
                     {
 
                         Image image = Image.FromFile(PathR + @"\male.png");
@@ -95,7 +95,7 @@ namespace DateSeer
         }
         private void button1_Click(object sender, EventArgs e)
         { 
-           if (Usern.getName() != null)
+           if (Usern.name != null)
             {
                 int id = Usern.getId();
                
@@ -103,7 +103,7 @@ namespace DateSeer
                 ChangeDatabase insert = new ChangeDatabase(main, id);
                 string PathR = GetResourcesPath();
                 PathR = Path.Combine(PathR, "Users");
-                PathR = PathR + @"\" + MainUser.getName() + ".txt";
+                PathR = PathR + @"\" + MainUser.name + ".txt";
 
                 TextWriter tw = new StreamWriter(PathR,true);
                 tw.WriteLine(Usern.getId());
@@ -111,7 +111,7 @@ namespace DateSeer
                 PathR = "";
                 PathR = GetResourcesPath();
                 PathR = Path.Combine(PathR, "Users");
-                PathR = PathR + @"\" + Usern.getName() + ".txt";
+                PathR = PathR + @"\" + Usern.name + ".txt";
                 string c = main.ToString();
                 if (!File.Exists(PathR))
                 {
@@ -139,7 +139,7 @@ namespace DateSeer
             MessageBox.Show("Matched!");
            String  Pathw = GetResourcesPath();
             Pathw = Path.Combine(Pathw, "Matches");
-            Pathw = Pathw + @"\" + MainUser.getName() + ".txt";
+            Pathw = Pathw + @"\" + MainUser.name + ".txt";
             MainUser.CreateFile(Pathw);
             TextWriter tew = new StreamWriter(Pathw,true);
             tew.WriteLine(Usern.getId());
@@ -168,7 +168,7 @@ namespace DateSeer
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (Usern.getName() != null)
+            if (Usern.name != null)
             {
                 int id = Usern.getId();
                 int main = MainUser.getId();

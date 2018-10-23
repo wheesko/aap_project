@@ -29,7 +29,7 @@ namespace DateSeer
 
         private void Loader()
         {
-            string name = MainUser.getName();
+            string name = MainUser.name;
             string pathg = GetResourcesPath();
             pathg = Path.Combine(pathg + @"\Matches" + @"\" + name + ".txt");
             if (File.Exists(pathg))
@@ -54,7 +54,7 @@ namespace DateSeer
                 {
                     UploadUser(person, brake);
                     brake++;
-                    names.Add(person.getName());
+                    names.Add(person.name);
                 }
                 brake = 0;
 
@@ -69,8 +69,8 @@ namespace DateSeer
         {
             if (brake1 == 0)
             {
-                label1.Text = person.getName();
-                label5.Text = person.getemail();
+                label1.Text = person.name;
+                label5.Text = person.email;
                 Image img = Image.FromFile(UploadPhoto(person));
                 pictureBox1.Image = img;
 
@@ -89,22 +89,22 @@ namespace DateSeer
             }
             else if (brake1 == 1)
             {
-                label2.Text = person.getName();
-                label6.Text = person.getemail();
+                label2.Text = person.name;
+                label6.Text = person.email;
                 Image img = Image.FromFile(UploadPhoto(person));
                 pictureBox2.Image = img;
             }
             else if (brake1 == 2)
             {
-                label3.Text = person.getName();
-                label7.Text = person.getemail();
+                label3.Text = person.name;
+                label7.Text = person.email;
                 Image img = Image.FromFile(UploadPhoto(person));
                 pictureBox3.Image = img;
             }
             else if (brake1 == 3)
             {
-                label4.Text = person.getName();
-                label8.Text = person.getemail();
+                label4.Text = person.name;
+                label8.Text = person.email;
                 Image img = Image.FromFile(UploadPhoto(person));
                 pictureBox4.Image = img;
             }
@@ -116,7 +116,7 @@ namespace DateSeer
             pathphoto = Path.Combine(pathphoto, "DefaultAccountPic");
             if (person.getImage() == "")
             {
-                if (person.getGender() == 1)
+                if (person.gender == 1)
                 {
 
                     pathphoto = Path.Combine(pathphoto + @"\male.png");
