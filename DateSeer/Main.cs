@@ -51,7 +51,7 @@ namespace DateSeer
             {
                 Usern.GetUserInfoByGender(1,MainUser.getId());
             }
-            MessageBox.Show(MainUser.getId().ToString());
+          
           
             string name; ;
             if (Usern.getName() == null)
@@ -98,15 +98,14 @@ namespace DateSeer
            if (Usern.getName() != null)
             {
                 int id = Usern.getId();
-                MessageBox.Show(id.ToString());
+               
                 int main = MainUser.getId();
                 ChangeDatabase insert = new ChangeDatabase(main, id);
                 string PathR = GetResourcesPath();
                 PathR = Path.Combine(PathR, "Users");
                 PathR = PathR + @"\" + MainUser.getName() + ".txt";
 
-                TextWriter tw = new StreamWriter(PathR);
-                tw.WriteLine();
+                TextWriter tw = new StreamWriter(PathR,true);
                 tw.WriteLine(Usern.getId());
                 tw.Close();
                 PathR = "";
@@ -142,7 +141,7 @@ namespace DateSeer
             Pathw = Path.Combine(Pathw, "Matches");
             Pathw = Pathw + @"\" + MainUser.getName() + ".txt";
             MainUser.CreateFile(Pathw);
-            TextWriter tew = new StreamWriter(Pathw);
+            TextWriter tew = new StreamWriter(Pathw,true);
             tew.WriteLine(Usern.getId());
             tew.Close();
         }

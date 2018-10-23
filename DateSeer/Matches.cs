@@ -32,12 +32,12 @@ namespace DateSeer
             string name = MainUser.getName();
             string pathg = GetResourcesPath();
             pathg = Path.Combine(pathg + @"\Matches" + @"\" + name + ".txt");
-            if (new FileInfo(pathg).Length > 2)
+            if (File.Exists(pathg))
             {
 
                 var matched = new List<User>();
                 names = new List<string>();
-                using (var reader = new StreamReader(pathg))
+                using (var reader = new StreamReader(pathg,true))
                 {
 
                     string line;
@@ -60,7 +60,8 @@ namespace DateSeer
 
             }else
             {
-
+                File.Create(pathg);
+                Loader();
             }
 
         }
