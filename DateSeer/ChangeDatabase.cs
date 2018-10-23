@@ -62,7 +62,7 @@ namespace DateSeer
             }
             finally
             {
-                MessageBox.Show(MainId + " " + Id );
+              
                 con.Close();
             }
 

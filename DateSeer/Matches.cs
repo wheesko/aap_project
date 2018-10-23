@@ -35,7 +35,7 @@ namespace DateSeer
             if (File.Exists(pathg))
             {
 
-                var matched = new List<User>();
+                matched = new List<User>();
                 names = new List<string>();
                 using (var reader = new StreamReader(pathg,true))
                 {
@@ -74,6 +74,18 @@ namespace DateSeer
                 Image img = Image.FromFile(UploadPhoto(person));
                 pictureBox1.Image = img;
 
+                label2.Text =null;
+                label6.Text = null;
+                pictureBox2.Image = null;
+
+                label3.Text = null;
+                label7.Text = null;
+                pictureBox3.Image = null;
+
+                label4.Text = null;
+                label8.Text = null;
+              
+                pictureBox4.Image = null;
             }
             else if (brake1 == 1)
             {
@@ -163,14 +175,15 @@ namespace DateSeer
             {
                 
                 brake = brake - 4;
+            
                 int temp = brake;
                 foreach (User person in matched)
                 {
                     UploadUser(person, brake);
                     brake++;
-                    brake = temp;
-
+                   ;
                 }
+                brake = temp;
 
             }
         }
@@ -182,6 +195,7 @@ namespace DateSeer
                
                 brake = brake + 4;
                 int temp = brake;
+              
                 foreach (User person in matched)
                 {
                     UploadUser(person, brake);
@@ -201,27 +215,41 @@ namespace DateSeer
         {
            if (e.KeyChar == (char)Keys.Enter)
            {
-              
-           
-                var searched = from s in names
-                               where s.Contains(textBox1.Text)
-                               select s;
-                string[] arr = new string[4] {"","","","" };
-                int c = 0;
-                foreach (var i in searched)
+                if (textBox1.Text != "")
                 {
-                    
-                    arr[c] = i;
-                    c++;
-                }
-                for (int j = 0; j < 4; j++)
-                {
-                    if (arr[j] != "")
+                    var searched = from s in names
+                                   where s.Contains(textBox1.Text)
+                                   select s;
+                    string[] arr = new string[4] { "", "", "", "" };
+                    int c = 0;
+                    foreach (var i in searched)
                     {
-                        User us = new User(arr[j], null);
-                        us.GetUserInfoByUsername();
-                        UploadUser(us, j);
+
+                        arr[c] = i;
+                        if (c < 3)
+                        c++;
                     }
+
+                    for (int j = 0; j < 4; j++)
+                    {
+                        if (arr[j] != "")
+                        {
+                            User us = new User(arr[j], null);
+                            us.GetUserInfoByUsername();
+                            UploadUser(us, j);
+                        }
+                    }
+                }
+                else
+                {
+                    int temp = brake;
+                    foreach (User person in matched)
+                    {
+                        
+                        UploadUser(person, brake);
+                        brake++;
+                    }
+                    brake = temp;
                 }
            }
 
