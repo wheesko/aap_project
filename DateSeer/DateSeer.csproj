@@ -34,15 +34,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EO.Base, Version=18.3.23.0, Culture=neutral, PublicKeyToken=e92353a6bf73fffc, processorArchitecture=MSIL">
-      <HintPath>..\packages\EO.WebBrowser.18.3.23\lib\EO.Base.dll</HintPath>
-    </Reference>
-    <Reference Include="EO.WebBrowser, Version=18.3.23.0, Culture=neutral, PublicKeyToken=e92353a6bf73fffc, processorArchitecture=MSIL">
-      <HintPath>..\packages\EO.WebBrowser.18.3.23\lib\EO.WebBrowser.dll</HintPath>
-    </Reference>
-    <Reference Include="EO.WebEngine, Version=18.3.23.0, Culture=neutral, PublicKeyToken=e92353a6bf73fffc, processorArchitecture=MSIL">
-      <HintPath>..\packages\EO.WebBrowser.18.3.23\lib\EO.WebEngine.dll</HintPath>
-    </Reference>
     <Reference Include="Facebook, Version=6.0.10.0, Culture=neutral, PublicKeyToken=58cb4f2111d1e6de, processorArchitecture=MSIL">
       <HintPath>..\packages\Facebook.7.0.6\lib\net45\Facebook.dll</HintPath>
     </Reference>
@@ -61,6 +52,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ChangeDatabase.cs" />
+    <Compile Include="DatabaseDataManager.cs" />
+    <Compile Include="DataController.cs" />
     <Compile Include="FacebookLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,6 +61,7 @@
       <DependentUpon>FacebookLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="GetUserInfo.cs" />
+    <Compile Include="IDataManager.cs" />
     <Compile Include="Matches.cs">
       <SubType>Form</SubType>
     </Compile>
