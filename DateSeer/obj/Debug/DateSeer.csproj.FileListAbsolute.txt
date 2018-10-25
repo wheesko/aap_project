@@ -202,3 +202,27 @@ C:\Users\n01\Desktop\merging conflicts\aap_project\DateSeer\bin\Debug\EO.WebBrow
 C:\Users\n01\Desktop\merging conflicts\aap_project\DateSeer\bin\Debug\EO.WebEngine.xml
 C:\Users\n01\Desktop\merging conflicts\aap_project\DateSeer\bin\Debug\Facebook.xml
 C:\Users\n01\Desktop\merging conflicts\aap_project\DateSeer\obj\Debug\DateSeer.csproj.CopyComplete
+C:\Users\n01\Desktop\oop\resolving conflicts in Search\aap_project\DateSeer\obj\Debug\DateSeer.csprojAssemblyReference.cache
+C:\Users\n01\Desktop\oop\resolving conflicts in Search\aap_project\DateSeer\obj\Debug\DateSeer.FacebookLogin.resources
+C:\Users\n01\Desktop\oop\resolving conflicts in Search\aap_project\DateSeer\obj\Debug\DateSeer.Login.resources
+C:\Users\n01\Desktop\oop\resolving conflicts in Search\aap_project\DateSeer\obj\Debug\DateSeer.Main.resources
+C:\Users\n01\Desktop\oop\resolving conflicts in Search\aap_project\DateSeer\obj\Debug\DateSeer.Matches.resources
+C:\Users\n01\Desktop\oop\resolving conflicts in Search\aap_project\DateSeer\obj\Debug\DateSeer.Options.resources
+C:\Users\n01\Desktop\oop\resolving conflicts in Search\aap_project\DateSeer\obj\Debug\DateSeer.Properties.Resources.resources
+C:\Users\n01\Desktop\oop\resolving conflicts in Search\aap_project\DateSeer\obj\Debug\DateSeer.Register.resources
+C:\Users\n01\Desktop\oop\resolving conflicts in Search\aap_project\DateSeer\obj\Debug\DateSeer.csproj.GenerateResource.cache
+C:\Users\n01\Desktop\oop\resolving conflicts in Search\aap_project\DateSeer\obj\Debug\DateSeer.csproj.CoreCompileInputs.cache
+C:\Users\n01\Desktop\oop\resolving conflicts in Search\aap_project\DateSeer\obj\Debug\DateSeer.exe
+C:\Users\n01\Desktop\oop\resolving conflicts in Search\aap_project\DateSeer\obj\Debug\DateSeer.pdb
+C:\Users\n01\Desktop\oop\resolving conflicts in Search\aap_project\DateSeer\bin\Debug\DateSeer.exe.config
+C:\Users\n01\Desktop\oop\resolving conflicts in Search\aap_project\DateSeer\bin\Debug\DateSeer.exe
+C:\Users\n01\Desktop\oop\resolving conflicts in Search\aap_project\DateSeer\bin\Debug\DateSeer.pdb
+C:\Users\n01\Desktop\oop\resolving conflicts in Search\aap_project\DateSeer\bin\Debug\EO.Base.dll
+C:\Users\n01\Desktop\oop\resolving conflicts in Search\aap_project\DateSeer\bin\Debug\EO.WebBrowser.dll
+C:\Users\n01\Desktop\oop\resolving conflicts in Search\aap_project\DateSeer\bin\Debug\EO.WebEngine.dll
+C:\Users\n01\Desktop\oop\resolving conflicts in Search\aap_project\DateSeer\bin\Debug\Facebook.dll
+C:\Users\n01\Desktop\oop\resolving conflicts in Search\aap_project\DateSeer\bin\Debug\EO.Base.xml
+C:\Users\n01\Desktop\oop\resolving conflicts in Search\aap_project\DateSeer\bin\Debug\EO.WebBrowser.xml
+C:\Users\n01\Desktop\oop\resolving conflicts in Search\aap_project\DateSeer\bin\Debug\EO.WebEngine.xml
+C:\Users\n01\Desktop\oop\resolving conflicts in Search\aap_project\DateSeer\bin\Debug\Facebook.xml
+C:\Users\n01\Desktop\oop\resolving conflicts in Search\aap_project\DateSeer\obj\Debug\DateSeer.csproj.CopyComplete
