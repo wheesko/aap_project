@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -41,6 +42,37 @@ namespace DateSeer
                 if (hashBytes[i + 16] != hash[i])
                     return false;
             return true;
+        }
+        public bool CompareToHash(User user)
+        {
+            //get from user class
+            string gotUsernameString = user.username;
+            string gotPassString = user.password;
+            //find user by username
+            /*List<SqlParameter> sqlParams = new List<SqlParameter>();
+            sqlParams.Add(new SqlParameter("Username", gotUsernameString));*/
+
+            //DataTable dtLoginResults = DAL.executeStoredProcedure("ValidateLogin", sqlParams);
+            DataController dataController = new DataController(new DatabaseDataManager());
+            DataTable dtLoginResults = dataController.GetData("ValidateLogin", user);
+            if (dtLoginResults.Rows.Count == 1) //if only 1 user found
+            {
+                string gotString = dtLoginResults.Rows[0]["password"].ToString();
+
+                if (new HashFunctions().GetNewHash(gotPassString, gotString) == true) //compare hashed passwords
+                {
+                    return true;
+
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

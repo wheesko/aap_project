@@ -82,10 +82,12 @@ namespace DateSeer
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
+            DataController dataController = new DataController(new DatabaseDataManager());
             if (UsernameTextBox.Text != "Username" && PasswordTextBox.Text != "Enter your password")
             {
                 User loginUser = new User(UsernameTextBox.Text, PasswordTextBox.Text);
-                if (DAL.CompareToHash(loginUser) == true)
+                //if (DAL.CompareToHash(loginUser) == true)
+                if(new HashFunctions().CompareToHash(loginUser) == true)
                 {
                     this.Hide();
                     Main main = new Main(loginUser);

@@ -9,7 +9,7 @@ namespace DateSeer
 {
     public interface IDataManager //interface for objects that work with data storage systems (database, file system, etc.)
     {
-        void WriteData(string writeType, User user);//expects a write type as string, that specifies how to write data, provides data in form of dictionary
-        DataTable GetData(string readType, User user); //Expects readType, specifiying what data to get. Provides key which specifies what data to get  
+         void WriteData(string writeType, User user);//expects a write type as string, that specifies how to write data, provides data in form of dictionary
+         DataTable GetData(string readType, User user); //Expects readType, specifiying what data to get. Provides key which specifies what data to get  
     }
 }

@@ -8,25 +8,42 @@ using System.Threading.Tasks;
 
 namespace DateSeer
 {
-    class DatabaseDataManager : IDataManager
+    public class DatabaseDataManager : IDataManager
     {
         public void WriteData(string typeOfWrite, User gotUser)
-        {
-            List <SqlParameter> sqlparams = new List<SqlParameter>();
-            
+        {            
             switch (typeOfWrite)
             {
                 case "AddUser": CreateUser(gotUser); break;
                 case "UpdateFacebookID": checkforFacebook(gotUser); break;
+                default: return; 
             }
+        
 
         }
         public DataTable GetData(string typeOfRead, User gotUser)
         {
-
-            return DAL.executeStoredProcedure(typeOfRead);
+            List<SqlParameter> checkParams = new List<SqlParameter>();
+            DataTable dt = new DataTable();
+            switch (typeOfRead)
+            {
+                case "ValidateLogin":
+                    checkParams.Add(new SqlParameter("Username", gotUser.username));
+                    dt = executeStoredProcedure("ValidateLogin", checkParams);
+                    return dt;
+                    break;
+                case "GetByEmailOrUsername":
+                    checkParams.Add(new SqlParameter("Username", gotUser.username));
+                    checkParams.Add(new SqlParameter("Email", gotUser.email));
+                    dt = executeStoredProcedure("GetByEmailOrUsername", checkParams);
+                    return dt;
+                    break;
+                default: return null; break;
+            }
+            return null;
+           
         }
-        private static DataTable executeStoredProcedure(string spName, List<SqlParameter> sqlParams = null)
+        private DataTable executeStoredProcedure(string spName, List<SqlParameter> sqlParams = null)
         {
 
             string strConn = "Server=" + Environment.MachineName + "\\SQLEXPRESS;Database=Login_data;Trusted_Connection=True";
@@ -66,7 +83,7 @@ namespace DateSeer
             return dt;
 
         }
-        private static void CreateUser(User user)
+        private void CreateUser(User user)
         {
             //get params from user class
             /*string username = user.getUsername();
@@ -103,35 +120,7 @@ namespace DateSeer
                 throw new Exception();//else throw exception
             }
         }
-        private static bool CompareToHash(User user)
-        {
-            //get from user class
-            string gotUsernameString = user.username;
-            string gotPassString = user.password;
-            //find user by username
-            List<SqlParameter> sqlParams = new List<SqlParameter>();
-            sqlParams.Add(new SqlParameter("Username", gotUsernameString));
-            DataTable dtLoginResults = DAL.executeStoredProcedure("ValidateLogin", sqlParams);
-            if (dtLoginResults.Rows.Count == 1) //if only 1 user found
-            {
-                string gotString = dtLoginResults.Rows[0]["password"].ToString();
-
-                if (new HashFunctions().GetNewHash(gotPassString, gotString) == true) //compare hashed passwords
-                {
-                    return true;
-
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                return false;
-            }
-        }
-        private static void checkforFacebook(User user)
+        private void checkforFacebook(User user)
         {
 
             List<SqlParameter> checkParams = new List<SqlParameter>();

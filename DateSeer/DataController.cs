@@ -14,13 +14,13 @@ namespace DateSeer
         {
             dataManager = gotDataManager;
         }
-        public void WriteData(string writeType, Dictionary<string, string> data)
+        public void WriteData(string writeType, User user)
         {
-            dataManager.WriteData(writeType, data);
+            dataManager.WriteData(writeType, user);
         }
-        public DataTable GetData(string readType)
+        public DataTable GetData(string readType, User user)
         {
-            return dataManager.GetData(readType);
+            return dataManager.GetData(readType, user);
         }
     }
 }
