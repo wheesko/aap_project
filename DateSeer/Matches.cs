@@ -32,11 +32,11 @@ namespace DateSeer
         private void Loader()
         {
             string name = MainUser.name;
+           
             string pathg = GetResourcesPath();
             pathg = Path.Combine(pathg + @"\Matches" + @"\" + name + ".txt");
             if (File.Exists(pathg))
             {
-
                 matched = new List<User>();
                 names = new List<string>();
                 using (var reader = new StreamReader(pathg,true))
@@ -109,7 +109,6 @@ namespace DateSeer
 
                 label4.Text = null;
                 label8.Text = null;
-
                 pictureBox4.Image = null;
             }
             else if (brake1 == 2)
@@ -123,6 +122,7 @@ namespace DateSeer
                 label8.Text = null;
 
                 pictureBox4.Image = null;
+
             }
             else if (brake1 == 3)
             {
@@ -233,42 +233,33 @@ namespace DateSeer
 
         }
 
-      
+
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
-           if (e.KeyChar == (char)Keys.Enter)
-           {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
                 if (textBox1.Text != "")
                 {
-
                     temp1 = new List<User>();
                     var searched = from person in matched
-                                   where person.name.Contains(textBox1.Text) 
+                                   where person.name.Contains(textBox1.Text)
                                    select person;
-
                     foreach (User person in searched)
                     {
-                        
                         temp1.Add(person);
-
                     }
                     matched.Clear();
-                    
-                    foreach(User us in temp1)
+                    foreach (User us in temp1)
                     {
-                      
                         matched.Add(us);
                     }
-
                     int brake = 0;
                     foreach (User userz in matched)
                     {
-                       
                         UploadUser(userz, brake);
                         brake++;
                     }
                     brake = 0;
-
                 }
                 else
                 {
@@ -277,19 +268,16 @@ namespace DateSeer
                     {
                         matched.Add(u);
                     }
-                    int temp = brake;
+                    brake = 0;
                     foreach (User person in matched)
                     {
-                        
                         UploadUser(person, brake);
                         brake++;
                     }
-                    brake = temp;
+                    brake = 0;
                 }
-           }
+            }
 
         }
     }
 }
-
-

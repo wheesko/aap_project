@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -47,7 +48,7 @@ namespace DateSeer
                 try
                 {
                     dataController.WriteData("AddUser", registeringUser);
-                    //DAL.CreateUser(registeringUser);
+
                     this.Hide();
                     Login LoginBack = new Login();
                     LoginBack.Show();

@@ -23,8 +23,6 @@ namespace DateSeer
         public string facebookID { get; set; }
         public string birthdate { get; set; }
 
-
-
         public User(string gotUsername, string gotPassword, string gotEmail, string gotName, string gotBirthdate, int gotGender)//used for register form
         {
             this.email = gotEmail;
@@ -65,6 +63,7 @@ namespace DateSeer
             this.gender = get.getGender();
             this.image = get.getImage();
             this.Id = get.getId();
+            this.username = get.getUsername();
          
         }
         public void GetUserInfoByGender(int gender,int ids)
@@ -75,6 +74,7 @@ namespace DateSeer
             this.gender = get.getGender();
             this.image = get.getImage();
             this.Id = get.getId();
+            this.username = get.getUsername();
           
            
 

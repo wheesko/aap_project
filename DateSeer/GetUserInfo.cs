@@ -17,7 +17,8 @@ namespace DateSeer
         private string Name ;
         private string Email;
         private int Gender;
-        private String Image;
+        private string Image;
+        private string Username;
 
 
         public GetUserInfo(string username)
@@ -48,16 +49,13 @@ namespace DateSeer
             {
                 con.Close();
             }
-            
+
             Name = dt.Rows[0]["Name"].ToString();
             Email = dt.Rows[0]["Email"].ToString();
             Gender = int.Parse(dt.Rows[0]["Gender"].ToString());
             Image = dt.Rows[0]["ImageName"].ToString();
             id = int.Parse(dt.Rows[0]["ID"].ToString());
-
-
-
-
+            Username = dt.Rows[0]["Username"].ToString();
         }
         public GetUserInfo(int gender, int ids, int z)
         {
@@ -97,7 +95,8 @@ namespace DateSeer
                 Gender = int.Parse(dt.Rows[0]["Gender"].ToString());
                 Image = dt.Rows[0]["ImageName"].ToString();
                 id = (int)dt.Rows[0]["ID"];
-              
+                Username = dt.Rows[0]["Username"].ToString();
+
             }
             catch (Exception ex)
             {
@@ -105,6 +104,12 @@ namespace DateSeer
             }
 
         }
+
+        public string getUsername()
+        {
+            return Username;
+        }
+
         public GetUserInfo(int id, int v)
         {
             string strConn = "Server=" + Environment.MachineName + "\\SQLEXPRESS;Database=Login_data;Trusted_Connection=True";
@@ -139,7 +144,8 @@ namespace DateSeer
             Gender = int.Parse(dt.Rows[0]["Gender"].ToString());
             Image = dt.Rows[0]["ImageName"].ToString();
             id = int.Parse(dt.Rows[0]["ID"].ToString());
-            
+            Username = dt.Rows[0]["Username"].ToString();
+
 
 
 
