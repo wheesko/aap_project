@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -46,6 +47,16 @@ namespace DateSeer
                 try
                 {
                     DAL.CreateUser(registeringUser);
+                    User temp= new User(registeringUser.username, null);
+                    temp.GetUserInfoByUsername();
+                    ChangeDatabase insert = new ChangeDatabase(temp.Id,temp.Id);
+                    string PathR = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
+                    PathR = Path.Combine(PathR, "Resources");
+                    string tpath = PathR;
+                    PathR = Path.Combine(PathR, "Users");
+                    File.Create(PathR + @"\"+temp.username+".txt");
+                    tpath = tpath + @"\Matches" + @"\" + temp.username + ".txt";
+                    File.Create(tpath);
                     this.Hide();
                     Login LoginBack = new Login();
                     LoginBack.Show();
