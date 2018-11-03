@@ -16,14 +16,18 @@ namespace DateSeer
         public int Id { get; set; }
         public int gender { get; set; }
         public string email { get; set; }
+
+        public void setImage(string v)
+        {
+            image = v;
+        }
+
         public string username { get; set; }
         public string password { get; set; }
         public string name { get; set; }
         private string image;
         public string facebookID { get; set; }
         public string birthdate { get; set; }
-
-
 
         public User(string gotUsername, string gotPassword, string gotEmail, string gotName, string gotBirthdate, int gotGender)//used for register form
         {
@@ -45,10 +49,7 @@ namespace DateSeer
             this.birthdate = gotBirthdate;
             this.gender = gotGender;
         }
-        internal void setImage(string path)
-        {
-            image = path;
-        }
+  
 
         public User(string gotUsername, string gotPassword)//used for login form
         {
@@ -65,6 +66,7 @@ namespace DateSeer
             this.gender = get.getGender();
             this.image = get.getImage();
             this.Id = get.getId();
+            this.username = get.getUsername();
          
         }
         public void GetUserInfoByGender(int gender,int ids)
@@ -75,6 +77,7 @@ namespace DateSeer
             this.gender = get.getGender();
             this.image = get.getImage();
             this.Id = get.getId();
+            this.username = get.getUsername();
           
            
 

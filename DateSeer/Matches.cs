@@ -17,6 +17,8 @@ namespace DateSeer
         private int brake;
         private List<User> matched;
         private List<string> names;
+        private List<User> tempw;
+        private List<User> temp1;
 
         public Matches(User MainUser)
         {
@@ -27,14 +29,18 @@ namespace DateSeer
 
         }
 
+        public Matches()
+        {
+        }
+
         private void Loader()
         {
             string name = MainUser.name;
+           
             string pathg = GetResourcesPath();
             pathg = Path.Combine(pathg + @"\Matches" + @"\" + name + ".txt");
             if (File.Exists(pathg))
             {
-
                 matched = new List<User>();
                 names = new List<string>();
                 using (var reader = new StreamReader(pathg,true))
@@ -58,7 +64,13 @@ namespace DateSeer
                 }
                 brake = 0;
 
-            }else
+                tempw = new List<User>();
+                foreach (User match in matched)
+                {
+                    tempw.Add(match);
+                }
+            }
+            else
             {
                 File.Create(pathg);
                 Loader();
@@ -71,8 +83,19 @@ namespace DateSeer
             {
                 label1.Text = person.name;
                 label5.Text = person.email;
-                Image img = Image.FromFile(UploadPhoto(person));
-                pictureBox1.Image = img;
+                try
+                {
+                    Image img = Image.FromFile(UploadPhoto(person));
+                    pictureBox1.Image = img;
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show("There was a problem with User: " + person.name + " image, we will reset this image to default");
+                    person.setImage("");
+                    person.setImage(UploadPhoto(person));
+                    Image img = Image.FromFile(UploadPhoto(person));
+                    pictureBox1.Image = img;
+                }
 
                 label2.Text =null;
                 label6.Text = null;
@@ -91,25 +114,69 @@ namespace DateSeer
             {
                 label2.Text = person.name;
                 label6.Text = person.email;
-                Image img = Image.FromFile(UploadPhoto(person));
-                pictureBox2.Image = img;
+                try
+                {
+                    Image img = Image.FromFile(UploadPhoto(person));
+                    pictureBox1.Image = img;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("There was a problem with User: " + person.name + "image, we will reset this image to default");
+                    person.setImage("");
+                    person.setImage(UploadPhoto(person));
+                    Image img = Image.FromFile(UploadPhoto(person));
+                    pictureBox1.Image = img;
+                }
+
+                label3.Text = null;
+                label7.Text = null;
+                pictureBox3.Image = null;
+                label4.Text = null;
+                label8.Text = null;
+                pictureBox4.Image = null;
             }
             else if (brake1 == 2)
             {
                 label3.Text = person.name;
                 label7.Text = person.email;
-                Image img = Image.FromFile(UploadPhoto(person));
-                pictureBox3.Image = img;
+                try
+                {
+                    Image img = Image.FromFile(UploadPhoto(person));
+                    pictureBox1.Image = img;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("There was a problem with User: "+person.name+"image, we will reset this image to default");
+                    person.setImage("");
+                    person.setImage(UploadPhoto(person));
+                    Image img = Image.FromFile(UploadPhoto(person));
+                    pictureBox1.Image = img;
+                }
+                label4.Text = null;
+                label8.Text = null;
+                pictureBox4.Image = null;
+
             }
             else if (brake1 == 3)
             {
                 label4.Text = person.name;
                 label8.Text = person.email;
-                Image img = Image.FromFile(UploadPhoto(person));
-                pictureBox4.Image = img;
+                try
+                {
+                    Image img = Image.FromFile(UploadPhoto(person));
+                    pictureBox1.Image = img;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("There was a problem with User: " + person.name + "image, we will reset this image to default");
+                    person.setImage("");
+                    person.setImage(UploadPhoto(person));
+                    Image img = Image.FromFile(UploadPhoto(person));
+                    pictureBox1.Image = img;
+                }
             }
         }
-        private string UploadPhoto(User person)
+        public string UploadPhoto(User person)
         {
 
             string pathphoto = GetResourcesPath();
@@ -141,7 +208,7 @@ namespace DateSeer
             Main n = new Main(MainUser);
             n.Show();
         }
-        private string GetResourcesPath()
+        public string GetResourcesPath()
         {
             string PathR = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
             PathR = Path.Combine(PathR, "Resources");
@@ -217,39 +284,40 @@ namespace DateSeer
            {
                 if (textBox1.Text != "")
                 {
-                    var searched = from s in names
-                                   where s.Contains(textBox1.Text)
-                                   select s;
-                    string[] arr = new string[4] { "", "", "", "" };
-                    int c = 0;
-                    foreach (var i in searched)
+                    temp1 = new List<User>();
+                    var searched = from person in matched
+                                   where person.name.Contains(textBox1.Text)
+                                   select person;
+                    foreach (User person in searched)
                     {
-
-                        arr[c] = i;
-                        if (c < 3)
-                        c++;
+                        temp1.Add(person);
                     }
-
-                    for (int j = 0; j < 4; j++)
+                    matched.Clear();
+                    foreach (User us in temp1)
                     {
-                        if (arr[j] != "")
+                        matched.Add(us);
+                    }
+                    int brake = 0;
+                    foreach (User userz in matched)
                         {
-                            User us = new User(arr[j], null);
-                            us.GetUserInfoByUsername();
-                            UploadUser(us, j);
+                            UploadUser(userz, brake);
+                            brake++;
                         }
-                    }
-                }
-                else
+                        brake = 0;
+           } else
                 {
-                    int temp = brake;
+                    matched.Clear();
+                    foreach (User u in tempw)
+                    {
+                        matched.Add(u);
+                    }
+                    brake = 0;
                     foreach (User person in matched)
                     {
-                        
                         UploadUser(person, brake);
                         brake++;
                     }
-                    brake = temp;
+                    brake = 0;
                 }
            }
 
