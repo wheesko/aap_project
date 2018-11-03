@@ -16,6 +16,12 @@ namespace DateSeer
         public int Id { get; set; }
         public int gender { get; set; }
         public string email { get; set; }
+
+        public void setImage(string v)
+        {
+            image = v;
+        }
+
         public string username { get; set; }
         public string password { get; set; }
         public string name { get; set; }
@@ -43,10 +49,7 @@ namespace DateSeer
             this.birthdate = gotBirthdate;
             this.gender = gotGender;
         }
-        internal void setImage(string path)
-        {
-            image = path;
-        }
+  
 
         public User(string gotUsername, string gotPassword)//used for login form
         {
