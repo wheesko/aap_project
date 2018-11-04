@@ -29,6 +29,10 @@ namespace DateSeer
 
         }
 
+        public Matches()
+        {
+        }
+
         private void Loader()
         {
             string name = MainUser.name;
@@ -80,8 +84,19 @@ namespace DateSeer
             {
                 label1.Text = person.name;
                 label5.Text = person.email;
-                Image img = Image.FromFile(UploadPhoto(person));
-                pictureBox1.Image = img;
+                try
+                {
+                    Image img = Image.FromFile(UploadPhoto(person));
+                    pictureBox1.Image = img;
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show("There was a problem with User: " + person.name + " image, we will reset this image to default");
+                    person.setImage("");
+                    person.setImage(UploadPhoto(person));
+                    Image img = Image.FromFile(UploadPhoto(person));
+                    pictureBox1.Image = img;
+                }
 
                 label2.Text =null;
                 label6.Text = null;
@@ -100,8 +115,19 @@ namespace DateSeer
             {
                 label2.Text = person.name;
                 label6.Text = person.email;
-                Image img = Image.FromFile(UploadPhoto(person));
-                pictureBox2.Image = img;
+                try
+                {
+                    Image img = Image.FromFile(UploadPhoto(person));
+                    pictureBox1.Image = img;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("There was a problem with User: " + person.name + "image, we will reset this image to default");
+                    person.setImage("");
+                    person.setImage(UploadPhoto(person));
+                    Image img = Image.FromFile(UploadPhoto(person));
+                    pictureBox1.Image = img;
+                }
 
                 label3.Text = null;
                 label7.Text = null;
@@ -115,9 +141,19 @@ namespace DateSeer
             {
                 label3.Text = person.name;
                 label7.Text = person.email;
-                Image img = Image.FromFile(UploadPhoto(person));
-                pictureBox3.Image = img;
-
+                try
+                {
+                    Image img = Image.FromFile(UploadPhoto(person));
+                    pictureBox1.Image = img;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("There was a problem with User: "+person.name+"image, we will reset this image to default");
+                    person.setImage("");
+                    person.setImage(UploadPhoto(person));
+                    Image img = Image.FromFile(UploadPhoto(person));
+                    pictureBox1.Image = img;
+                }
                 label4.Text = null;
                 label8.Text = null;
 
@@ -128,11 +164,22 @@ namespace DateSeer
             {
                 label4.Text = person.name;
                 label8.Text = person.email;
-                Image img = Image.FromFile(UploadPhoto(person));
-                pictureBox4.Image = img;
+                try
+                {
+                    Image img = Image.FromFile(UploadPhoto(person));
+                    pictureBox1.Image = img;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("There was a problem with User: " + person.name + "image, we will reset this image to default");
+                    person.setImage("");
+                    person.setImage(UploadPhoto(person));
+                    Image img = Image.FromFile(UploadPhoto(person));
+                    pictureBox1.Image = img;
+                }
             }
         }
-        private string UploadPhoto(User person)
+        public string UploadPhoto(User person)
         {
 
             string pathphoto = GetResourcesPath();
@@ -164,7 +211,7 @@ namespace DateSeer
             Main n = new Main(MainUser);
             n.Show();
         }
-        private string GetResourcesPath()
+        public string GetResourcesPath()
         {
             string PathR = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
             PathR = Path.Combine(PathR, "Resources");

@@ -85,8 +85,18 @@ namespace DateSeer
                 }
                 else
                 {
-                    Image image = Image.FromFile(Usern.getImage());
-                    UsernPic.Image = image;
+                    if (File.Exists(Usern.getImage()))
+                    {
+                        Image image = Image.FromFile(Usern.getImage());
+                        UsernPic.Image = image;
+                    }
+                    else
+                    {
+                        MessageBox.Show("There was a mistake with this picture");
+                        Usern.setImage("");
+                        UsernPic.Image = null;
+                    }
+               
                 }
             }
         }
