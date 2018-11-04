@@ -49,6 +49,7 @@ namespace DateSeer
             {
                 con.Close();
             }
+
             Name = dt.Rows[0]["Name"].ToString();
             Email = dt.Rows[0]["Email"].ToString();
             Gender = int.Parse(dt.Rows[0]["Gender"].ToString());

@@ -65,6 +65,7 @@ namespace DateSeer
                 brake = 0;
 
                 tempw = new List<User>();
+
                 foreach (User match in matched)
                 {
                     tempw.Add(match);
@@ -131,6 +132,7 @@ namespace DateSeer
                 label3.Text = null;
                 label7.Text = null;
                 pictureBox3.Image = null;
+
                 label4.Text = null;
                 label8.Text = null;
                 pictureBox4.Image = null;
@@ -154,6 +156,7 @@ namespace DateSeer
                 }
                 label4.Text = null;
                 label8.Text = null;
+
                 pictureBox4.Image = null;
 
             }
@@ -277,11 +280,11 @@ namespace DateSeer
 
         }
 
-      
+
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
-           if (e.KeyChar == (char)Keys.Enter)
-           {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
                 if (textBox1.Text != "")
                 {
                     temp1 = new List<User>();
@@ -299,12 +302,13 @@ namespace DateSeer
                     }
                     int brake = 0;
                     foreach (User userz in matched)
-                        {
-                            UploadUser(userz, brake);
-                            brake++;
-                        }
-                        brake = 0;
-           } else
+                    {
+                        UploadUser(userz, brake);
+                        brake++;
+                    }
+                    brake = 0;
+                }
+                else
                 {
                     matched.Clear();
                     foreach (User u in tempw)
@@ -319,10 +323,8 @@ namespace DateSeer
                     }
                     brake = 0;
                 }
-           }
+            }
 
         }
     }
 }
-
-

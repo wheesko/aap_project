@@ -38,6 +38,7 @@ namespace DateSeer
         {
 
             var validationResult = new Validation().validateRegistrationForm(name: textBox1.Text, username: textBox3.Text, repeatedPass: textBox5.Text, email: textBox2.Text, gotAge: dateTimePicker1.Value, female: FemaleBox.Checked, male: MaleBox.Checked, pass: textBox4.Text);
+            DataController dataController = new DataController(new DatabaseDataManager());
             if (validationResult == "")
             {
                 int gender1 = 0;
@@ -46,17 +47,8 @@ namespace DateSeer
                 User registeringUser = new User(textBox3.Text, textBox4.Text, textBox2.Text, textBox1.Text, dateTimePicker1.Value.ToString(), gender1);
                 try
                 {
-                    DAL.CreateUser(registeringUser);
-                    User temp= new User(registeringUser.username, null);
-                    temp.GetUserInfoByUsername();
-                    ChangeDatabase insert = new ChangeDatabase(temp.Id,temp.Id);
-                    string PathR = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
-                    PathR = Path.Combine(PathR, "Resources");
-                    string tpath = PathR;
-                    PathR = Path.Combine(PathR, "Users");
-                    File.Create(PathR + @"\"+temp.username+".txt");
-                    tpath = tpath + @"\Matches" + @"\" + temp.username + ".txt";
-                    File.Create(tpath);
+                    dataController.WriteData("AddUser", registeringUser);
+
                     this.Hide();
                     Login LoginBack = new Login();
                     LoginBack.Show();
