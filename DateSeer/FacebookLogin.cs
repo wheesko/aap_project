@@ -81,7 +81,8 @@ namespace DateSeer
              this.Hide();
              int gender = result["gender"] == "male" ? gender = 1 : gender = 2;           
              User user = new User(result["email"], result["name"], result["id"], result["birthday"], gender);
-             DAL.checkforFacebook(user);
+             DataController dataController = new DataController(new DatabaseDataManager());
+             dataController.WriteData("UpdateFacebookID",user);
              Main main = new Main(user);
              main.Show();
         }

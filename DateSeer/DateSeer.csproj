@@ -82,7 +82,6 @@
     </Compile>
     <Compile Include="Upload.cs" />
     <Compile Include="User.cs" />
-    <Compile Include="DAL.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
