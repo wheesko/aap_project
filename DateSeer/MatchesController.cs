@@ -136,46 +136,40 @@ namespace DateSeer
         private void Loader()
             {
                 
-                string name = MainUser.name;
-                 string pathg = GetResourcesPath();
-                 pathg = Path.Combine(pathg + @"\Matches" + @"\" + name + ".txt");
-                 if (File.Exists(pathg))
-                 {
+             
                      matched = new List<User>();
                      names = new List<string>();
-                     using (var reader = new StreamReader(pathg,true))
-                     {
 
-                         string line;
+      
+            for (int i = 1; ; i++)
+            {
+                User rUser = new User(null, null);
+                rUser.MatchesSearch(MainUser, i);
+                if (rUser.username != null)
+                {
+                    matched.Add(rUser);
+                    MessageBox.Show(rUser.name);
+                }
+                else { break; }
 
-                         while ((line = reader.ReadLine()) != null)
-                         {
-                             User n = new User(null, null);
-                             n.GetUserInfoByID(int.Parse(line));
-                             matched.Add(n);
-                         }
-                     }
-                     brake = 0;
-                     foreach (User person in matched)
-                     {
-                         UploadUser(person, brake);
-                         brake++;
-                         names.Add(person.name);
-                     }
-                     brake = 0;
 
-                     tempw = new List<User>();
+            }
+               brake = 0;
+               foreach (User person in matched)
+                  {
+                      UploadUser(person, brake);
+                      brake++;
+                      names.Add(person.name);
+                  }
+               brake = 0;
 
-                     foreach (User match in matched)
-                     {
-                         tempw.Add(match);
-                     }
-                 }
-                 else
-                 {
-                     File.Create(pathg);
-                     Loader();
-                 }
+               tempw = new List<User>();
+
+                foreach (User match in matched)
+                  {
+                    tempw.Add(match);
+                  }
+              
 
             }
         private void UploadUser(User person, int brake1)

@@ -15,25 +15,17 @@ namespace DateSeer
         Thread th;
         private User MainUser;
         private User Usern;
-        public int state = 1;
         public Main mainpage;
         public Matches matchesform;
         public Options optionform;
+        public int number;
 
         public MainController(User MainUser,Main e)
         {
             this.MainUser = MainUser;
             mainpage = e;
-
-            MainUser.GetUserInfoByUsername();
-            string path = GetResourcesPath();
-            path = Path.Combine(path, "Users");
-            path = path + @"\" + MainUser.username + ".txt";
-            if (File.Exists(path)) { }
-            else
-            {
-                MainUser.CreateFile(path);
-            }
+            number = 1;
+            MainUser.GetUserInfoByUsername(); 
             Load_User();
             mainpage.LikeButtomPressed += () =>Liked();
             mainpage.DisLikeButtomPressed += () => Disliked();
@@ -92,7 +84,7 @@ namespace DateSeer
             {
                 int id = Usern.getId();
                 int main = MainUser.getId();
-                ChangeDatabase insert = new ChangeDatabase(main, id);
+                ChangeDatabase insert = new ChangeDatabase(main,id,0, "dbo.UsedIDs", "ID","UsedID");
                 Load_User();
             }
         }
@@ -163,50 +155,21 @@ namespace DateSeer
                 if (Usern.name != null)
                 {
                     int id = Usern.Id;
-                    int maine = MainUser.Id;
-                    ChangeDatabase insert = new ChangeDatabase(maine, id);
-                    string PathR = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
-                    PathR = Path.Combine(PathR, "Resources");
-                    PathR = Path.Combine(PathR, "Users");
-                    PathR = PathR + @"\" + MainUser.username + ".txt";
-                    TextWriter tw = new StreamWriter(PathR, true);
-                    tw.WriteLine(Usern.Id);
-                    tw.Close();
-                    PathR = "";
-                    PathR = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
-                    PathR = Path.Combine(PathR, "Resources");
-                    PathR = Path.Combine(PathR, "Users");
-                    PathR = PathR + @"\" + Usern.username + ".txt";
-
-                    string c = maine.ToString();
-                    using (StreamReader sr = File.OpenText(PathR))
+                    int main = MainUser.Id;
+                    ChangeDatabase insert = new ChangeDatabase(main, id,0,"dbo.UsedIDs", "ID", "UsedID");
+                    ChangeDatabase insert0 = new ChangeDatabase(main,id,0,"dbo.Likes","PersonID","Liked");
+                    User searched = new User(null, null);
+                    searched.SearchLikes(MainUser,Usern);
+                    if (searched.username != null)
                     {
-                        string s = String.Empty;
-                        while ((s = sr.ReadLine()) != null)
-                        {
-                            if (s == c)
-                            {
-                                matched(MainUser, Usern);
-                            }
-                        }
+                        MessageBox.Show("Matched!");
+                        ChangeDatabase insert1 = new ChangeDatabase(main,id,number,"dbo.Matches","PersonID","MatchedID");
+                        ChangeDatabase insert2 = new ChangeDatabase(id,main,number,"dbo.Matches","PersonID", "MatchedID");
+                        number++;
                     }
                     Load_User();
                 }
             }
-        }
-        public void matched(User MainUser,User Usern)
-        {
-                MessageBox.Show("Matched!");
-                string Pathw = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
-                Pathw = Path.Combine(Pathw, "Resources");
-                Pathw = Path.Combine(Pathw, "Matches");
-                TextWriter tew = new StreamWriter(Pathw + @"\" + MainUser.username + ".txt", true);
-                tew.WriteLine(MainUser.Id);
-                tew.Close();
-                TextWriter tw = new StreamWriter(Pathw + @"\" + Usern.username + ".txt", true);
-                tw.WriteLine(MainUser.Id);
-                tw.Close();
-                Load_User();
         }
     }
    
