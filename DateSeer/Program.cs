@@ -8,15 +8,16 @@ namespace DateSeer
 {
     static class Program
     {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
         [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login());
+            Login loginform = new Login();
+            LoginController cont = new LoginController(loginform);
+            Application.Run(loginform);
         }
     }
 }
+
+   

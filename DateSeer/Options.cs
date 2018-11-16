@@ -11,109 +11,38 @@ using System.Windows.Forms;
 
 namespace DateSeer
 {
-    public partial class Options : Form
+    public partial class Options : Form, OptionForm
     {
-        private User MainUser;
 
-        public Options(User MainUser)
-        {
-           
-            this.MainUser = MainUser;
-            InitializeComponent();
-          
+        public Action Upload { get => UploadButtomPressed; set => UploadButtomPressed = value; }
+        public Action Back { get => BackPressed; set => BackPressed = value; }
+        public Action Exit { get => ExitPressed; set => ExitPressed = value; }
+
+        private Action UploadButtomPressed= delegate { };
+        private Action BackPressed = delegate { };
+        private Action ExitPressed = delegate { };
+     
+        public Options()
+        { 
+            InitializeComponent();       
         }
 
         private void label3_Click(object sender, EventArgs e)
         {
-            Register newregister = new Register();
-          
-            Upload photo = new Upload();
-           ChangeDatabase change = new ChangeDatabase(photo.getPathR(), MainUser);
-            MainUser.setImage(photo.getPathR());
-           Option_Load();
-
+            UploadButtomPressed();
         }
-
-        private void Option_Load()
-        {
-            UserName.Text = MainUser.name;
-            string PathR = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
-            PathR = Path.Combine(PathR, "Resources");
-            PathR = Path.Combine(PathR, "DefaultAccountPic");
-            if (MainUser.getImage() == "")
-            {
-
-                if (MainUser.gender == 1)
-
-                {
-
-                    Image image = Image.FromFile(PathR + @"\male.png");
-                    pictureBox1.Image = image;
-
-                }
-                else
-                {
-                    Image image = Image.FromFile(PathR + @"\female.jpg");
-                    pictureBox1.Image = image;
-
-                }
-
-            }
-            else
-            {
-                try
-                {
-                    Image image = Image.FromFile(MainUser.getImage());
-                    pictureBox1.Image = image;
-                }
-                catch (Exception ex) { }
-
-                    
-            }
-        }
-
         private void label3_MouseHover(object sender, EventArgs e)
         {
             label3.ForeColor = Color.Red;
         }
-
         private void label3_MouseLeave(object sender, EventArgs e)
         {
             label3.ForeColor = Color.Black;
         }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            Option_Load();
-            
-            
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            ExitPressed();
         }
-
-        private void Update_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void label1_MouseHover(object sender, EventArgs e)
         {
             label1.ForeColor = Color.Red;
@@ -126,9 +55,7 @@ namespace DateSeer
 
         private void label1_Click_1(object sender, EventArgs e)
         {
-            this.Hide();
-            Main n = new Main(MainUser);
-            n.Show();
+            BackPressed();
         }
     }
 }
