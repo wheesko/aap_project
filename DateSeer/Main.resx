@@ -348,6 +348,9 @@
   <data name="&gt;&gt;pictureBox2.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
+  <data name="label2.AccessibleName" xml:space="preserve">
+    <value>label2</value>
+  </data>
   <data name="label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>

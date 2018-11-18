@@ -47,13 +47,11 @@
             // 
             resources.ApplyResources(this.label3, "label3");
             this.label3.Name = "label3";
-            this.label3.Click += new System.EventHandler(this.Label3_Click);
             // 
             // label4
             // 
             resources.ApplyResources(this.label4, "label4");
             this.label4.Name = "label4";
-            this.label4.Click += new System.EventHandler(this.Label4_Click);
             // 
             // label5
             // 
@@ -65,7 +63,6 @@
             resources.ApplyResources(this.UsernameTextBox, "UsernameTextBox");
             this.UsernameTextBox.ForeColor = System.Drawing.SystemColors.InactiveCaption;
             this.UsernameTextBox.Name = "UsernameTextBox";
-            this.UsernameTextBox.TextChanged += new System.EventHandler(this.UsernameTextBox_TextChanged);
             this.UsernameTextBox.Enter += new System.EventHandler(this.UsernameTextBox_Enter);
             this.UsernameTextBox.Leave += new System.EventHandler(this.UsernameTextBox_Leave);
             // 
@@ -74,7 +71,6 @@
             resources.ApplyResources(this.PasswordTextBox, "PasswordTextBox");
             this.PasswordTextBox.ForeColor = System.Drawing.Color.Silver;
             this.PasswordTextBox.Name = "PasswordTextBox";
-            this.PasswordTextBox.TextChanged += new System.EventHandler(this.PasswordTextBox_TextChanged);
             this.PasswordTextBox.Enter += new System.EventHandler(this.PasswordTextBox_Enter);
             this.PasswordTextBox.Leave += new System.EventHandler(this.PasswordTextBox_Leave);
             // 
@@ -91,7 +87,6 @@
             resources.ApplyResources(this.pictureBox2, "pictureBox2");
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // pictureBox1
             // 
@@ -113,7 +108,6 @@
             // 
             resources.ApplyResources(this.label2, "label2");
             this.label2.Name = "label2";
-            this.label2.Click += new System.EventHandler(this.label2_Click_1);
             this.label2.MouseLeave += new System.EventHandler(this.label2_MouseLeave);
             this.label2.MouseHover += new System.EventHandler(this.label2_MouseHover);
             // 
@@ -136,7 +130,6 @@
             this.Name = "Login";
             this.ShowIcon = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Login_FormClosing);
             this.Load += new System.EventHandler(this.Login_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -149,13 +142,13 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox UsernameTextBox;
-        private System.Windows.Forms.TextBox PasswordTextBox;
         private System.Windows.Forms.Button LoginButton;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        public System.Windows.Forms.TextBox UsernameTextBox;
+        public System.Windows.Forms.TextBox PasswordTextBox;
     }
 }
 

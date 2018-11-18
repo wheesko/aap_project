@@ -54,20 +54,21 @@
     <Compile Include="ChangeDatabase.cs" />
     <Compile Include="DatabaseDataManager.cs" />
     <Compile Include="DataController.cs" />
-    <Compile Include="FacebookLogin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FacebookLogin.Designer.cs">
-      <DependentUpon>FacebookLogin.cs</DependentUpon>
-    </Compile>
     <Compile Include="GetUserInfo.cs" />
     <Compile Include="IDataManager.cs" />
+    <Compile Include="LoginController.cs" />
+    <Compile Include="LoginForm.cs" />
+    <Compile Include="MainController.cs" />
+    <Compile Include="MainForm.cs" />
     <Compile Include="Matches.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Matches.Designer.cs">
       <DependentUpon>Matches.cs</DependentUpon>
     </Compile>
+    <Compile Include="MatchesController.cs" />
+    <Compile Include="MatchesForm.cs" />
+    <Compile Include="OptionForm.cs" />
     <Compile Include="Options.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,11 +76,15 @@
       <DependentUpon>Options.cs</DependentUpon>
     </Compile>
     <Compile Include="HashFunctions.cs" />
+    <Compile Include="OptionsController.cs" />
+    <Compile Include="ProfileController.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="RegisterController.cs" />
+    <Compile Include="RegisterIUI.cs" />
     <Compile Include="Upload.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Login.cs">
@@ -103,9 +108,6 @@
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
     <Compile Include="Validation.cs" />
-    <EmbeddedResource Include="FacebookLogin.resx">
-      <DependentUpon>FacebookLogin.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
