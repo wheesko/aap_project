@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DateSeer", "DateSeer\DateSe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DateSeerTests", "UnitTestProject3\DateSeerTests.csproj", "{360CD20F-C706-4C29-A1C2-7622EE68CE8A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DateSeer_android", "App1\DateSeer_android.csproj", "{0E4838A8-A348-4567-B98E-05836B669FE1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,12 @@ Global
 		{360CD20F-C706-4C29-A1C2-7622EE68CE8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{360CD20F-C706-4C29-A1C2-7622EE68CE8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{360CD20F-C706-4C29-A1C2-7622EE68CE8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E4838A8-A348-4567-B98E-05836B669FE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E4838A8-A348-4567-B98E-05836B669FE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E4838A8-A348-4567-B98E-05836B669FE1}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{0E4838A8-A348-4567-B98E-05836B669FE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E4838A8-A348-4567-B98E-05836B669FE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E4838A8-A348-4567-B98E-05836B669FE1}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
