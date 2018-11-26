@@ -56,7 +56,10 @@
     <Reference Include="Mono.Android" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MainActivity.cs" />
+    <Compile Include="Activities\LoginActivity.cs" />
+    <Compile Include="Activities\MainActivity.cs" />
+    <Compile Include="Activities\RegisterActivity.cs" />
+    <Compile Include="Code\Controller\LoginController.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -66,7 +69,7 @@
     <None Include="Assets\AboutAssets.txt" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\activity_main.axml">
+    <AndroidResource Include="Resources\layout\Main.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\values\colors.xml" />
@@ -95,9 +98,29 @@
     <PackageReference Include="Xamarin.Android.Support.Design" Version="27.0.2.1" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\layout1.axml">
+    <AndroidResource Include="Resources\layout\Login.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\Register.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\Profile.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\Matches.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Code\Controller\Interface\" />
+    <Folder Include="Code\Manager\" />
+    <Folder Include="Code\Model\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

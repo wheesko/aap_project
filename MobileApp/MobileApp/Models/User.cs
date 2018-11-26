@@ -15,12 +15,10 @@ namespace MobileApp.Models
         public int Id { get; set; }
         public int gender { get; set; }
         public string email { get; set; }
-
         public void setImage(string v)
         {
             image = v;
         }
-
         public string username { get; set; }
         public string password { get; set; }
         public string name { get; set; }
@@ -38,6 +36,7 @@ namespace MobileApp.Models
             this.facebookID = null;
             this.birthdate = gotBirthdate;
         }
+
         public User(string gotEmail, string gotName, string gotfacebookID, string gotBirthdate, int gotGender)//used for login with facebook
         {
             this.username = " ";
@@ -48,7 +47,6 @@ namespace MobileApp.Models
             this.birthdate = gotBirthdate;
             this.gender = gotGender;
         }
-  
 
         public User(string gotUsername, string gotPassword)//used for login form
         {
@@ -57,18 +55,6 @@ namespace MobileApp.Models
             this.name = null;
             this.email = null;
         }
-       
-       
-       
-        public void CreateFile(string path)
-        {
-            if (!File.Exists(path))
-            {
-                File.Create(path);
-            }
-        } 
-      
     }
-
-    }
+ }
 

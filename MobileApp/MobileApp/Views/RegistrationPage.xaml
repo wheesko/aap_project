@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileApp.Views.RegistrationPage">
+    <ContentPage.Content>
+        <StackLayout>
+            
+            <Label x:Name="Username" Text="Username" />
+            <Entry x:Name="Entry_Username" Placeholder="Username"/>
+            <Label Text="Email"/>
+            <Entry x:Name="Entry_Email"  Placeholder ="Email"/>
+            <Label x:Name="Lbl_Password" Text="Password" />
+            <Entry x:Name="Entry_Password" Placeholder="Password" IsPassword="True"/>
+            <Button Text ="Register" x:Name="Register" Command="{Binding RegisterCommand}" />
+            <Button x:Name="Back" Text="Back" Command="{Binding BackCommand}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
