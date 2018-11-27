@@ -6,6 +6,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using Microsoft.WindowsAzure.MobileServices;
 
 namespace MobileApp.Droid
 {
@@ -21,5 +22,9 @@ namespace MobileApp.Droid
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
         }
+        public static MobileServiceClient MobileService =
+        new MobileServiceClient(
+        "https://dateseerapp.azurewebsites.net"
+        );
     }
 }

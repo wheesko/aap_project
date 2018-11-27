@@ -2,9 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
-using Android.Database.Sqlite;
-
-
+using System.Data.SqlTypes;
+using System.Data.SqlClient;
 namespace MobileApp.Services
 {
     public class DatabaseDataManager : IDataManager
@@ -42,8 +41,8 @@ namespace MobileApp.Services
         private DataTable executeStoredProcedure(string spName, List<SqlParameter> sqlParams = null)
         {
 
-            string strConn = "Server=" + Environment.MachineName + @"\SQLEXPRESS;Database=Login_data;Trusted_Connection=True";
-           
+            //string strConn = "Server=" + Environment.MachineName + @"\SQLEXPRESS;Database=Login_data;Trusted_Connection=True";
+            string strConn = "Server = tcp:dateseer.database.windows.net,1433; Initial Catalog = Dateseer_data; Persist Security Info = False; User ID = {username}; Password ={password}; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;" ;
             SqlConnection conn = new SqlConnection();
 
             DataTable dt = new DataTable();
