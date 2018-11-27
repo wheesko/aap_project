@@ -6,11 +6,30 @@
              xmlns:viewModels ="clr-namespace:MobileApp.ViewModels;assembly=MobileApp">
 
     <StackLayout>
-        
-        <Label Text="DataSeer" XAlign="Center" FontSize="Large"/>
-        <Button Text="Profile" HorizontalOptions="Start" VerticalOptions="Start"/>
-        <Button Text="Matches"  HorizontalOptions = "End" VerticalOptions="Start"/>
-  
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10"></ColumnDefinition>
+                <ColumnDefinition Width="100"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="100"></ColumnDefinition>
+                <ColumnDefinition Width="10"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height ="15"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height ="500"></RowDefinition>
+                <RowDefinition Height ="50"></RowDefinition>
+                <RowDefinition Height="10"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label Grid.Column="2" Grid.Row="0" Text="DataSeer" XAlign="Center" FontSize="Large"/>
+            <Button Grid.Column="1" Grid.Row="1" Text="Profile" />
+            <Button Grid.Column="3" Grid.Row="1" Text="Matches"  />
+            <Image Grid.Column="1" Grid.Row="2" Source="kek.jpg" Grid.ColumnSpan="3"></Image>
+            <Image Grid.Column="2" Grid.Row="1"></Image>
+            <Button Grid.Column="1" Grid.Row="3" Text="Dislike"  />
+            <Button Grid.Column="3" Grid.Row="3" Text="Like" />
+            <Label Grid.Column="2" Grid.Row="3" Text="Some name here" XAlign="Center" YAlign="Center"></Label>
+        </Grid>
     </StackLayout>
 
 </ContentPage>
