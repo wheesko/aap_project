@@ -13,8 +13,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileApp.Android", "Mobile
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MobileApp", "MobileApp\MobileApp\MobileApp.csproj", "{016977AA-008D-47B2-9362-98E6DC7B69CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DateSeerLib", "DateSeerLib\DateSeerLib.csproj", "{450D8A4F-9988-4581-BB52-DE6CDC02ECD6}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -97,18 +95,6 @@ Global
 		{016977AA-008D-47B2-9362-98E6DC7B69CA}.Release|iPhone.Build.0 = Release|Any CPU
 		{016977AA-008D-47B2-9362-98E6DC7B69CA}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{016977AA-008D-47B2-9362-98E6DC7B69CA}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
-		{450D8A4F-9988-4581-BB52-DE6CDC02ECD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{450D8A4F-9988-4581-BB52-DE6CDC02ECD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{450D8A4F-9988-4581-BB52-DE6CDC02ECD6}.Debug|iPhone.ActiveCfg = Debug|Any CPU
-		{450D8A4F-9988-4581-BB52-DE6CDC02ECD6}.Debug|iPhone.Build.0 = Debug|Any CPU
-		{450D8A4F-9988-4581-BB52-DE6CDC02ECD6}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
-		{450D8A4F-9988-4581-BB52-DE6CDC02ECD6}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
-		{450D8A4F-9988-4581-BB52-DE6CDC02ECD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{450D8A4F-9988-4581-BB52-DE6CDC02ECD6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{450D8A4F-9988-4581-BB52-DE6CDC02ECD6}.Release|iPhone.ActiveCfg = Release|Any CPU
-		{450D8A4F-9988-4581-BB52-DE6CDC02ECD6}.Release|iPhone.Build.0 = Release|Any CPU
-		{450D8A4F-9988-4581-BB52-DE6CDC02ECD6}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
-		{450D8A4F-9988-4581-BB52-DE6CDC02ECD6}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

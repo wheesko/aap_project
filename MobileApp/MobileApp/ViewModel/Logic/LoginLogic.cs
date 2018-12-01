@@ -4,7 +4,12 @@ using System.Text;
 
 namespace MobileApp.ViewModel
 {
-    class MainViewModel
+    public class LoginLogic
     {
+        
+        public LoginLogic()
+        {
+
+        }
     }
 }

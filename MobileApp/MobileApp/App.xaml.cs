@@ -8,11 +8,14 @@ namespace MobileApp
 {
     public partial class App : Application
     {
+        public static App instance;
+
         public App()
         {
+            instance = this;
             InitializeComponent();
 
-            MainPage = new LoginPage();
+            StateController stateController = new StateController(this);
         }
 
         protected override void OnStart()

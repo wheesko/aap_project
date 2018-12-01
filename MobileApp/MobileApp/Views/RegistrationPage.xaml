@@ -12,7 +12,7 @@
             <Label x:Name="Lbl_Password" Text="Password" />
             <Entry x:Name="Entry_Password" Placeholder="Password" IsPassword="True"/>
             <Button Text ="Register" x:Name="Register" Command="{Binding RegisterCommand}" />
-            <Button x:Name="Back" Text="Back" Command="{Binding BackCommand}"/>
+            <Button x:Name="Back" Text="Back" Clicked="Back_Clicked" Command="{Binding BackCommand}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

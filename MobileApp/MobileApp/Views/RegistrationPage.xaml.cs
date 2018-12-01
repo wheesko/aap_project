@@ -14,11 +14,19 @@ namespace MobileApp.Views
     public partial class RegistrationPage : ContentPage
     {
         public static RegistrationPage instance;
+
+        public Action Btn_Back = delegate { };
+        
         public RegistrationPage()
         {
             instance = this;
             InitializeComponent();
-            BindingContext = new RegisterViewModel();
+          //  BindingContext = new RegisterViewModel();
+        }
+
+        private void Back_Clicked(object sender, EventArgs e)
+        {
+            Btn_Back();
         }
     }
 }

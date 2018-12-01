@@ -42,7 +42,7 @@ namespace MobileApp.Services
         {
 
             //string strConn = "Server=" + Environment.MachineName + @"\SQLEXPRESS;Database=Login_data;Trusted_Connection=True";
-            string strConn = "Server = tcp:dateseer.database.windows.net,1433; Initial Catalog = Dateseer_data; Persist Security Info = False; User ID = {username}; Password ={password}; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;" ;
+            string strConn = "Server = tcp:dateseer.database.windows.net,1433; Initial Catalog = Dateseer_table_data; Persist Security Info = False; User ID = ; Password =; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;" ;
             SqlConnection conn = new SqlConnection();
 
             DataTable dt = new DataTable();
@@ -146,6 +146,245 @@ namespace MobileApp.Services
                 return;
             }
 
+        }
+        public void ChangePhoto(string picturePath, User user)
+        {
+            string strConn = "Server=" + Environment.MachineName + "\\SQLEXPRESS;Database=Login_data;Trusted_Connection=True";
+            string sql = "UPDATE dbo.logins_table SET ImageName ='" + picturePath + "'WHERE Username='" + user.username + "'";
+
+            SqlConnection con = new SqlConnection();
+
+            try
+            {
+                con = new SqlConnection(strConn);
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand(sql, con);
+
+                SqlCommand command = con.CreateCommand();
+                SqlDataReader dr = cmd.ExecuteReader();
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                con.Close();
+            }
+
+        }
+        public void UpdateTable(Table db)
+        {
+
+            string strConn = "Server=" + Environment.MachineName + "\\SQLEXPRESS;Database=Login_data;Trusted_Connection=True";
+            if (db.number == 0)
+            {
+                string sql = @"Insert into " + db.table + " (" + db.collumname1 + "," + db.collumname2 + ")" +
+                    " Values(" + db.MainId + "," + db.Id + ")";
+
+                SqlConnection con = new SqlConnection();
+
+                try
+                {
+                    con = new SqlConnection(strConn);
+                    con.Open();
+
+                    SqlCommand cmd = new SqlCommand(sql, con);
+
+                    SqlCommand command = con.CreateCommand();
+                    SqlDataReader dr = cmd.ExecuteReader();
+                }
+                catch (Exception ex)
+                {
+
+                }
+                finally
+                {
+
+                    con.Close();
+                }
+            }
+            else
+            {
+                string sql = @"Insert into " + db.table + " (" + db.collumname1 + "," + db.collumname2 + ",Number)" +
+                    " Values(" + db.MainId + "," + db.Id + "," + db.number + ")";
+
+                SqlConnection con = new SqlConnection();
+
+                try
+                {
+                    con = new SqlConnection(strConn);
+                    con.Open();
+
+                    SqlCommand cmd = new SqlCommand(sql, con);
+
+                    SqlCommand command = con.CreateCommand();
+                    SqlDataReader dr = cmd.ExecuteReader();
+                }
+                catch (Exception ex)
+                {
+
+                }
+                finally
+                {
+
+                    con.Close();
+                }
+            }
+
+
+        }
+        public DataTable GetUserByUsername(string username)
+        {
+            string strConn = "Server=" + Environment.MachineName + "\\SQLEXPRESS;Database=Login_data;Trusted_Connection=True";
+            string sql = "SELECT * FROM dbo.logins_table WHERE Username ='" + username + "';";
+
+            SqlConnection con = new SqlConnection();
+            DataTable dt = new DataTable();
+            try
+            {
+                con = new SqlConnection(strConn);
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand(sql, con);
+
+                SqlCommand command = con.CreateCommand();
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                dt.Load(dr);
+                return dt;
+
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                con.Close();
+            }
+            
+           
+        }
+        public DataTable GetUnsedUser(int gender, int ids)
+        {
+            string strConn = "Server=" + Environment.MachineName + "\\SQLEXPRESS;Database=Login_data;Trusted_Connection=True";
+            string sql = @"With nereikalingi As (
+            SELECT dbo.UsedIDs.UsedID AS 'ID'
+            FROM dbo.logins_table INNER JOIN
+            dbo.UsedIDs ON dbo.logins_table.ID = dbo.UsedIDs.UsedID
+            Where dbo.UsedIDs.ID = " + ids + "),Reikalingi AS( Select ID From dbo.logins_table        EXCEPT        Select ID From nereikalingi)       Select top 1 * from dbo.logins_table JOIN Reikalingi   ON    Reikalingi.ID = dbo.logins_table.id      Where Gender =" + gender;
+            SqlConnection cdon = new SqlConnection();
+            DataTable dt = new DataTable();
+            try
+            {
+                cdon = new SqlConnection(strConn);
+                cdon.Open();
+
+                SqlCommand cmd = new SqlCommand(sql, cdon);
+
+                SqlCommand command = cdon.CreateCommand();
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                dt.Load(dr);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                cdon.Close();
+            }
+        }
+        public DataTable GetUserById(int id)
+        {
+            string strConn = "Server=" + Environment.MachineName + "\\SQLEXPRESS;Database=Login_data;Trusted_Connection=True";
+            string sql = "SELECT * FROM dbo.logins_table WHERE ID ='" + id + "';";
+
+            SqlConnection con = new SqlConnection();
+            DataTable dt = new DataTable();
+            try
+            {
+                con = new SqlConnection(strConn);
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand(sql, con);
+
+                SqlCommand command = con.CreateCommand();
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                dt.Load(dr);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                con.Close();
+            }         
+        }
+        public DataTable SearchMatch(User MainUser, int number)
+        {
+            string strConn = "Server=" + Environment.MachineName + "\\SQLEXPRESS;Database=Login_data;Trusted_Connection=True";
+            string sql = "SELECT * FROM dbo.Matches WHERE PersonID ='" + MainUser.Id + "' AND Number = '" + number + "';";
+
+            SqlConnection con = new SqlConnection();
+            DataTable dt = new DataTable();
+            try
+            {
+                con = new SqlConnection(strConn);
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand(sql, con);
+
+                SqlCommand command = con.CreateCommand();
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                dt.Load(dr);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                con.Close();
+            }
+         }
+        public DataTable Searches(User MainUser, User Usern)
+        {
+            string strConn = "Server=" + Environment.MachineName + "\\SQLEXPRESS;Database=Login_data;Trusted_Connection=True";
+            string sql = "SELECT * FROM dbo.Likes WHERE PersonID ='" + Usern.Id + "' AND Liked =" + MainUser.Id + ";";
+
+            SqlConnection con = new SqlConnection();
+            DataTable dt = new DataTable();
+            try
+            {
+                con = new SqlConnection(strConn);
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand(sql, con);
+
+                SqlCommand command = con.CreateCommand();
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                dt.Load(dr);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                con.Close();
+            }
         }
     }
 }
