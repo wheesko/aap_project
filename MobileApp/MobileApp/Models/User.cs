@@ -6,7 +6,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Forms;
 
 namespace MobileApp.Models
 {
@@ -15,14 +15,10 @@ namespace MobileApp.Models
         public int Id { get; set; }
         public int gender { get; set; }
         public string email { get; set; }
-        public void setImage(string v)
-        {
-            image = v;
-        }
         public string username { get; set; }
         public string password { get; set; }
         public string name { get; set; }
-        private string image { get; set; }
+        public ImageSource image { get; set; }
         public string facebookID { get; set; }
         public string birthdate { get; set; }
 

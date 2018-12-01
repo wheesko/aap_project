@@ -28,8 +28,18 @@ namespace MobileApp
         }
         public StateController(MainPage main)
         {
-            main.MatchesPressed += () => MatchesForm();
-            main.ProfilePressed += () => ProfileForm();
+        
+          main.MatchesPressed += (MainUser) => MatchesForm(MainUser);
+          main.ProfilePressed += (MainUser) => ProfileForm(MainUser);
+        }
+        public StateController(ProfileForm prof)
+        {
+            prof.Back += (MainUser) => MainForm(MainUser);
+
+        }
+        public StateController(MatchesForm match)
+        {
+            match.Back += (MainUser) => MainForm(MainUser);
         }
         public void RegisterForm()
         {
@@ -56,13 +66,21 @@ namespace MobileApp
             StateController state = new StateController(main);
             program.MainPage = main;
         }
-        public void ProfileForm()
+        public void ProfileForm(User MainUser)
         {
-
+            program = App.instance;
+            ProfileForm prof = new ProfileForm();
+            ProfileController mainer = new ProfileController(prof, MainUser);
+            StateController state = new StateController(prof);
+            program.MainPage = prof;
         }
-        public void MatchesForm()
+        public void MatchesForm(User MainUser)
         {
-
+            program = App.instance;
+            MatchesForm match = new MatchesForm();
+            MatchesController mainer = new MatchesController(match, MainUser);
+            StateController state = new StateController(match);
+            program.MainPage = match;
         }
     }
 }

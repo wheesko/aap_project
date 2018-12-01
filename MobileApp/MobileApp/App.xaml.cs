@@ -14,8 +14,8 @@ namespace MobileApp
         {
             instance = this;
             InitializeComponent();
-
-            StateController stateController = new StateController(this);
+            MainPage = new MainPage();
+            //StateController stateController = new StateController(this);
         }
 
         protected override void OnStart()

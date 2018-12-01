@@ -1,48 +1,47 @@
-﻿using System;
+﻿using MobileApp.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
-namespace MobileApp
+namespace MobileApp.Views
 {
-    public partial class MainPage : ContentPage,IDisposable
-    {
-        public Action ProfilePressed = delegate { };
-        public Action MatchesPressed = delegate { };
-        public Action DislikePressed = delegate { };
+	[XamlCompilation(XamlCompilationOptions.Compile)]
+	public partial class MainPage : ContentPage
+	{
+        public Action<User> ProfilePressed = delegate { };
+        public Action<User> MatchesPressed = delegate { };
+        public Action Profile = delegate { };
+        public Action Matches = delegate { };
         public Action LikePressed = delegate { };
+        public Action DislikePressed = delegate { };
 
-        public MainPage()
-        {
-            InitializeComponent();
-        }
+		public MainPage ()
+		{
+			InitializeComponent ();
+		}
 
         private void Profile_Clicked(object sender, EventArgs e)
         {
-            ProfilePressed();
+            Profile();
         }
-
         private void Matches_Clicked(object sender, EventArgs e)
         {
-            this.Dispose();
-            MatchesPressed();
+            Matches();
         }
 
         private void Dislike_Clicked(object sender, EventArgs e)
         {
-
+            DislikePressed();
         }
 
         private void Like_Clicked(object sender, EventArgs e)
         {
-
-        }
-
-        public void Dispose()
-        {
-            this.Dispose();
+            LikePressed();
         }
     }
 }

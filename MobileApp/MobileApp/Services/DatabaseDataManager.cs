@@ -42,7 +42,7 @@ namespace MobileApp.Services
         {
 
             //string strConn = "Server=" + Environment.MachineName + @"\SQLEXPRESS;Database=Login_data;Trusted_Connection=True";
-            string strConn = "Server = tcp:dateseer.database.windows.net,1433; Initial Catalog = Dateseer_table_data; Persist Security Info = False; User ID = ; Password =; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;" ;
+            string strConn = "Server = tcp:dateseer.database.windows.net,1433; Initial Catalog = Dateseer_table_data; Persist Security Info = False; User ID = Imhotepas123; Password =Klevas456 ; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;" ;
             SqlConnection conn = new SqlConnection();
 
             DataTable dt = new DataTable();

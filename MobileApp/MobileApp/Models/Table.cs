@@ -12,5 +12,15 @@ namespace MobileApp.Models
         public string table { get; set; }
         public string collumname1 { get; set; }
         public string collumname2 { get; set; }
+        
+        public Table(int MainId,int Id,int number,string table,string collumname1,string collumname2)
+        {
+            this.MainId = MainId;
+            this.Id = Id;
+            this.number = number;
+            this.table = table;
+            this.collumname1 = collumname1;
+            this.collumname2 = collumname2;
+        }
     }
 }
