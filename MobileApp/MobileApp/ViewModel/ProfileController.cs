@@ -7,19 +7,26 @@ namespace MobileApp
     internal class ProfileController
     {
         private ProfileForm prof;
-        private User mainUser;
+        private User MainUser;
 
         public ProfileController(ProfileForm prof, User mainUser)
         {
             this.prof = prof;
-            this.mainUser = mainUser;
+            this.MainUser = mainUser;
             prof.BackPressed += () => prof.Back(mainUser);
             prof.UploadPhoto += () => UploadPicture();
+            Profile_load();
+
         }
 
         private void UploadPicture()
         {
-            throw new NotImplementedException();
+           // reik padaryt kad paiimtu nuotrauka ir idetu i db 
+        }
+        private void Profile_load()
+        {
+            prof.Name.Text = MainUser.name;
+            prof.UserImage.Source = MainUser.image;
         }
     }
 }

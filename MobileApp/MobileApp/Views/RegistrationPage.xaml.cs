@@ -16,17 +16,23 @@ namespace MobileApp.Views
         public static RegistrationPage instance;
 
         public Action Btn_Back = delegate { };
-        
+
+        public Action RegisterPressed = delegate { };
+
         public RegistrationPage()
         {
             instance = this;
             InitializeComponent();
-          //  BindingContext = new RegisterViewModel();
         }
 
         private void Back_Clicked(object sender, EventArgs e)
         {
             Btn_Back();
+        }
+
+        private void Register_Clicked(object sender, EventArgs e)
+        {
+            RegisterPressed();
         }
     }
 }

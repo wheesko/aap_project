@@ -77,7 +77,6 @@
     </Compile>
     <Compile Include="HashFunctions.cs" />
     <Compile Include="OptionsController.cs" />
-    <Compile Include="ProfileController.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

@@ -21,5 +21,15 @@ namespace MobileApp.Views
 		{
 			InitializeComponent ();
 		}
-	}
+
+        private void Back_Clicked(object sender, EventArgs e)
+        {
+            BackPressed();
+        }
+
+        private void Upload_Clicked(object sender, EventArgs e)
+        {
+            UploadPhoto();
+        }
+    }
 }

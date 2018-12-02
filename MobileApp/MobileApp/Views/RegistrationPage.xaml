@@ -5,28 +5,27 @@
     <ContentPage.Content>
         <StackLayout>
 
-            <Label x:Name="Username" Text="Username" />
-            <Entry x:Name="Entry_Username" Placeholder="Username"/>
-            <Label x:Name="Name" Text="Name" />
-            <Entry x:Name="Entry_name" Placeholder="Name"/>
-            <Label Text="Email"/>
-            <Entry x:Name="Entry_Email"  Placeholder ="Email"/>
-            <Label x:Name="Lbl_Password" Text="Password" />
-            <Entry x:Name="Entry_Password" Placeholder="Password" IsPassword="True"/>
-            <Label x:Name="Lbl_RepPass" Text="Repeat password" />
-            <Entry x:Name="Entry_PasswordRep" Placeholder="Repeat Password" IsPassword="True"/>
-            <Label x:Name="Lbl_Date" Text="Birthdate" />
-            <DatePicker />
-            <Label x:Name="Lbl_Gender" Text="Gender" />
-            <Picker x:Name="Gender" SelectedIndex="{Binding Gender}" HorizontalOptions="FillAndExpand" Title="Gender">
-                <Picker.Items>
+            <Label x:Name="Username" Text="Username" x:FieldModifier="Public"/>
+            <Entry x:Name="Entry_Username" Placeholder="Username" x:FieldModifier="Public"/>
+            <Label x:Name="Name" Text="Name" x:FieldModifier="Public"/>
+            <Entry x:Name="Entry_name" Placeholder="Name" x:FieldModifier="Public"/>
+            <Label Text="Email" x:FieldModifier="Public"/>
+            <Entry x:Name="Entry_Email"  Placeholder ="Email" x:FieldModifier="Public"/>
+            <Label x:Name="Lbl_Password" Text="Password" x:FieldModifier="Public" />
+            <Entry x:Name="Entry_Password" Placeholder="Password" IsPassword="True" x:FieldModifier="Public"/>
+            <Label x:Name="Lbl_RepPass" Text="Repeat password" x:FieldModifier="Public" />
+            <Entry x:Name="Entry_PasswordRep" Placeholder="Repeat Password" IsPassword="True" x:FieldModifier="Public"/>
+            <Label x:Name="Lbl_Date" Text="Birthdate" x:FieldModifier="Public" />
+            <DatePicker x:Name="DatePicker" x:FieldModifier="Public"/>
+            <Label x:Name="Lbl_Gender" Text="Gender"  x:FieldModifier="Public" />
+            <Picker x:Name="Gender" HorizontalOptions="FillAndExpand" Title="Gender" x:FieldModifier="Public">
+                <Picker.Items x:FieldModifier="Public">
                     <x:String>Male</x:String>
                     <x:String>Female</x:String>
                 </Picker.Items>
             </Picker>
-            <Button Text ="Register" x:Name="Register" Command="{Binding RegisterCommand}" />
-            <Button x:Name="Back" Text="Back" Command="{Binding BackCommand}"/>
-
+            <Button Text ="Register" x:Name="Register"  Clicked="Register_Clicked"/>
+            <Button x:Name="Back" Text="Back" Clicked="Back_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

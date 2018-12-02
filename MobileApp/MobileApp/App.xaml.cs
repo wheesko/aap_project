@@ -14,7 +14,9 @@ namespace MobileApp
         {
             instance = this;
             InitializeComponent();
-            MainPage = new MainPage();
+            RegistrationPage e = new RegistrationPage();
+            RegisterController f = new RegisterController(e);
+            MainPage = e;
             //StateController stateController = new StateController(this);
         }
 
