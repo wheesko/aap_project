@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileApp.Views.MatchesPage">
+    <StackLayout>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5"></ColumnDefinition>
+                <ColumnDefinition Width="100"></ColumnDefinition>
+                <ColumnDefinition Width="10"></ColumnDefinition>
+                <ColumnDefinition Width="100"></ColumnDefinition>
+                <ColumnDefinition Width="10"></ColumnDefinition>
+                <ColumnDefinition Width="100"></ColumnDefinition>
+                <ColumnDefinition Width="10"></ColumnDefinition>
+                <ColumnDefinition Width="100"></ColumnDefinition>
+                <ColumnDefinition Width="10"></ColumnDefinition>
+                <ColumnDefinition Width="5"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="45"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="150"></RowDefinition>
+                <RowDefinition Height="100"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="20"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label Text="Matches" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" FontSize="24"></Label>
+            <Entry x:Name ="SearchByName" Grid.Column="1" Grid.Row="2" Placeholder="Search" Grid.RowSpan="1" Grid.ColumnSpan="2" x:FieldModifier="Public" TextChanged="SearchByName_TextChanged"></Entry>
+            <Image x:Name ="Picture1" Grid.Column="1" Grid.Row="5" x:FieldModifier="Public"></Image>
+            <Label x:Name ="LabelEmail1" Grid.Column="1" Grid.Row="6" Text="Some email" x:FieldModifier="Public" ></Label>
+            <Label x:Name ="LabelName1" Grid.Column="1" Grid.Row="6" Text="Some name" x:FieldModifier="Public" ></Label>
+            <Image x:Name ="Picture2" Grid.Column="3" Grid.Row="5" x:FieldModifier="Public"></Image>
+            <Label x:Name ="LabelEmail2" Grid.Column="3" Grid.Row="6" Text="Some email" x:FieldModifier="Public" ></Label>
+            <Label x:Name ="LabelName2" Grid.Column="1" Grid.Row="6" Text="Some name" x:FieldModifier="Public" ></Label>
+            <Image x:Name ="Picture3" Grid.Column="5" Grid.Row="5" x:FieldModifier="Public" ></Image>
+            <Label x:Name ="LabelEmail3" Grid.Column="5" Grid.Row="6" Text="Some email" x:FieldModifier="Public" ></Label>
+            <Label x:Name ="LabelName3" Grid.Column="1" Grid.Row="6" Text="Some name" x:FieldModifier="Public" ></Label>
+            <Button Grid.Column="5" Grid.Row="7" Text="Next" Clicked="Next_Clicked"></Button>
+            <Button Grid.Column="5" Grid.Row="7" Text="Previous" Clicked="Previous_Clicked"></Button>
+            <Button  Grid.Column="3" Grid.Row="7" Text="Back" Clicked="Back_Clicked"></Button>
+        </Grid>
+    </StackLayout>
+</ContentPage>

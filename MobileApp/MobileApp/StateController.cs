@@ -37,7 +37,7 @@ namespace MobileApp
             prof.Back += (MainUser) => MainForm(MainUser);
 
         }
-        public StateController(MatchesForm match)
+        public StateController(MatchesPage match)
         {
             match.Back += (MainUser) => MainForm(MainUser);
         }
@@ -77,7 +77,7 @@ namespace MobileApp
         public void MatchesForm(User MainUser)
         {
             program = App.instance;
-            MatchesForm match = new MatchesForm();
+            MatchesPage match = new MatchesPage();
             MatchesController mainer = new MatchesController(match, MainUser);
             StateController state = new StateController(match);
             program.MainPage = match;
