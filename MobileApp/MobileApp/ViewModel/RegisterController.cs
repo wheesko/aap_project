@@ -21,13 +21,25 @@ namespace MobileApp
         {
             Picker Gender = new Picker();
             int mode = Gender.SelectedIndex;
-            var validationResult = new Validation().validateRegistrationForm(name: register.Entry_name.Text, username: register.Entry_Username.Text, repeatedPass: register.Entry_PasswordRep.Text, email: register.Entry_Email.Text, gotAge: register.DatePicker.Date, female: register.Gender.SelectedIndex, male: register.Gender.SelectedIndex, pass: register.Entry_Password);
+            bool male;
+            bool female;
+            if (register.Gender.SelectedIndex == 0)
+            {
+                male = true;
+                female = false;
+            }
+            else
+            {
+                male = false;
+                female = true;
+            }
+            var validationResult = new Validation().validateRegistrationForm(name: register.Entry_name.Text, username: register.Entry_Username.Text, repeatedPass: register.Entry_PasswordRep.Text, email: register.Entry_Email.Text, gotAge: register.DatePicker.Date, female: female, male: male, pass: register.Entry_Password.Text);
             DataController dataController = new DataController(new DatabaseDataManager());
             if (validationResult == "")
             {
 
                 
-                User registeringUser = new User(register.Entry_Username.Text, register.Entry_Password.Text, register.Entry_Email.Text, register.Entry_name.Text, register.DatePicker.Date.ToString(), gender1);
+                User registeringUser = new User(register.Entry_Username.Text, register.Entry_Password.Text, register.Entry_Email.Text, register.Entry_name.Text, register.DatePicker.Date.ToString(), register.Gender.SelectedIndex++);
                 try
                 {
                     dataController.WriteData("AddUser", registeringUser);
