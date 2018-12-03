@@ -33,13 +33,15 @@ namespace MobileApp
                 male = false;
                 female = true;
             }
+            int gender = register.Gender.SelectedIndex+1;
+
             var validationResult = new Validation().validateRegistrationForm(name: register.Entry_name.Text, username: register.Entry_Username.Text, repeatedPass: register.Entry_PasswordRep.Text, email: register.Entry_Email.Text, gotAge: register.DatePicker.Date, female: female, male: male, pass: register.Entry_Password.Text);
             DataController dataController = new DataController(new DatabaseDataManager());
             if (validationResult == "")
             {
 
                 
-                User registeringUser = new User(register.Entry_Username.Text, register.Entry_Password.Text, register.Entry_Email.Text, register.Entry_name.Text, register.DatePicker.Date.ToString(), register.Gender.SelectedIndex++);
+                User registeringUser = new User(register.Entry_Username.Text, register.Entry_Password.Text, register.Entry_Email.Text, register.Entry_name.Text, register.DatePicker.Date.ToString(), gender);
                 try
                 {
                     dataController.WriteData("AddUser", registeringUser);
