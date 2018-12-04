@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileApp.Views.RegistrationPage">
+    <ContentPage.Content>
+        <StackLayout>
+
+            <Label x:Name="Username" Text="Username" x:FieldModifier="Public"/>
+            <Entry x:Name="Entry_Username" Placeholder="Username" x:FieldModifier="Public"/>
+            <Label x:Name="Name" Text="Name" x:FieldModifier="Public"/>
+            <Entry x:Name="Entry_name" Placeholder="Name" x:FieldModifier="Public"/>
+            <Label Text="Email" x:FieldModifier="Public"/>
+            <Entry x:Name="Entry_Email"  Placeholder ="Email" x:FieldModifier="Public"/>
+            <Label x:Name="Lbl_Password" Text="Password" x:FieldModifier="Public" />
+            <Entry x:Name="Entry_Password" Placeholder="Password" IsPassword="True" x:FieldModifier="Public"/>
+            <Label x:Name="Lbl_RepPass" Text="Repeat password" x:FieldModifier="Public" />
+            <Entry x:Name="Entry_PasswordRep" Placeholder="Repeat Password" IsPassword="True" x:FieldModifier="Public"/>
+            <Label x:Name="Lbl_Date" Text="Birthdate" x:FieldModifier="Public" />
+            <DatePicker x:Name="DatePicker" x:FieldModifier="Public"/>
+            <Label x:Name="Lbl_Gender" Text="Gender"  x:FieldModifier="Public" />
+            <Picker x:Name="Gender" HorizontalOptions="FillAndExpand" Title="Gender" x:FieldModifier="Public">
+                <Picker.Items x:FieldModifier="Public">
+                    <x:String>Male</x:String>
+                    <x:String>Female</x:String>
+                </Picker.Items>
+            </Picker>
+            <Button Text ="Register" x:Name="Register"  Clicked="Register_Clicked"/>
+            <Button x:Name="Back" Text="Back" Clicked="Back_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

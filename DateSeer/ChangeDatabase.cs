@@ -38,33 +38,65 @@ namespace DateSeer
             }
 
         }
-        public ChangeDatabase(int MainId, int Id)
+        public ChangeDatabase(int MainId, int Id,int number,string table, string collumname1, string collumname2)
         {
+           
             string strConn = "Server=" + Environment.MachineName + "\\SQLEXPRESS;Database=Login_data;Trusted_Connection=True";
-            string sql = @"Insert into dbo.UsedIDs(ID, UsedID)
-                          Values("+MainId+","+Id+")";
-
-            SqlConnection con = new SqlConnection();
-
-            try
+            if (number == 0)
             {
-                con = new SqlConnection(strConn);
-                con.Open();
+                string sql = @"Insert into " + table + " (" + collumname1 + "," + collumname2 + ")" +
+                    " Values(" + MainId + "," + Id + ")";
 
-                SqlCommand cmd = new SqlCommand(sql, con);
+                SqlConnection con = new SqlConnection();
 
-                SqlCommand command = con.CreateCommand();
-                SqlDataReader dr = cmd.ExecuteReader();
+                try
+                {
+                    con = new SqlConnection(strConn);
+                    con.Open();
+
+                    SqlCommand cmd = new SqlCommand(sql, con);
+
+                    SqlCommand command = con.CreateCommand();
+                    SqlDataReader dr = cmd.ExecuteReader();
+                }
+                catch (Exception ex)
+                {
+
+                }
+                finally
+                {
+
+                    con.Close();
+                }
             }
-            catch (Exception ex)
+            else
             {
+                string sql = @"Insert into " + table + " (" + collumname1 + "," + collumname2 +",Number)" +
+                    " Values(" + MainId + "," + Id +"," + number + ")";
 
+                SqlConnection con = new SqlConnection();
+
+                try
+                {
+                    con = new SqlConnection(strConn);
+                    con.Open();
+
+                    SqlCommand cmd = new SqlCommand(sql, con);
+
+                    SqlCommand command = con.CreateCommand();
+                    SqlDataReader dr = cmd.ExecuteReader();
+                }
+                catch (Exception ex)
+                {
+
+                }
+                finally
+                {
+
+                    con.Close();
+                }
             }
-            finally
-            {
-              
-                con.Close();
-            }
+            
 
         }
     }

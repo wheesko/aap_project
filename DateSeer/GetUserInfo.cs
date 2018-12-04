@@ -20,7 +20,10 @@ namespace DateSeer
         private string Image;
         private string Username;
 
+        public GetUserInfo()
+        {
 
+        }
         public GetUserInfo(string username)
         {
             string strConn = "Server=" + Environment.MachineName + "\\SQLEXPRESS;Database=Login_data;Trusted_Connection=True";
@@ -138,17 +141,93 @@ namespace DateSeer
             {
                 con.Close();
             }
+            try
+            {
+                Name = dt.Rows[0]["Name"].ToString();
+                Email = dt.Rows[0]["Email"].ToString();
+                Gender = int.Parse(dt.Rows[0]["Gender"].ToString());
+                Image = dt.Rows[0]["ImageName"].ToString();
+                id = int.Parse(dt.Rows[0]["ID"].ToString());
+                Username = dt.Rows[0]["Username"].ToString();
+            }
+            catch (Exception ex)
+            {
 
-            Name = dt.Rows[0]["Name"].ToString();
-            Email = dt.Rows[0]["Email"].ToString();
-            Gender = int.Parse(dt.Rows[0]["Gender"].ToString());
-            Image = dt.Rows[0]["ImageName"].ToString();
-            id = int.Parse(dt.Rows[0]["ID"].ToString());
-            Username = dt.Rows[0]["Username"].ToString();
+            }
+        }
+        public void SearchMatch(User MainUser,int number)
+        {
+            string strConn = "Server=" + Environment.MachineName + "\\SQLEXPRESS;Database=Login_data;Trusted_Connection=True";
+            string sql = "SELECT * FROM dbo.Matches WHERE PersonID ='"+ MainUser.Id + "' AND Number = '" + number + "';";
 
+            SqlConnection con = new SqlConnection();
+            DataTable dt = new DataTable();
+            try
+            {
+                con = new SqlConnection(strConn);
+                con.Open();
 
+                SqlCommand cmd = new SqlCommand(sql, con);
 
+                SqlCommand command = con.CreateCommand();
+                SqlDataReader dr = cmd.ExecuteReader();
 
+                dt.Load(dr);
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                con.Close();
+            }
+            try
+            {
+                int idp = int.Parse(dt.Rows[0]["MatchedID"].ToString());
+                this.id = idp;
+            }
+            catch (Exception ex)
+            { }
+
+        }
+        public void Searches(User MainUser,User Usern)
+        {
+            string strConn = "Server=" + Environment.MachineName + "\\SQLEXPRESS;Database=Login_data;Trusted_Connection=True";
+            string sql = "SELECT * FROM dbo.Likes WHERE PersonID ='" + Usern.Id + "' AND Liked =" + MainUser.Id + ";";
+
+            SqlConnection con = new SqlConnection();
+            DataTable dt = new DataTable();
+            try
+            {
+                con = new SqlConnection(strConn);
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand(sql, con);
+
+                SqlCommand command = con.CreateCommand();
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                dt.Load(dr);
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                con.Close();
+            }
+            try
+            {
+                int idp = int.Parse(dt.Rows[0]["PersonID"].ToString());
+                this.id = idp;
+            }
+            catch ( Exception ex)
+            { }
+            
         }
         public int getId()
         {

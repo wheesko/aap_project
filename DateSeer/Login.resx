@@ -126,10 +126,14 @@
     <value>Microsoft Sans Serif, 13.8pt</value>
   </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>255, 483</value>
+    <value>191, 392</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="label3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>40, 29</value>
+    <value>31, 24</value>
   </data>
   <data name="label3.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -156,10 +160,13 @@
     <value>Segoe Script, 36pt</value>
   </data>
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>113, 167</value>
+    <value>85, 136</value>
+  </data>
+  <data name="label4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>316, 95</value>
+    <value>254, 76</value>
   </data>
   <data name="label4.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -183,10 +190,13 @@
     <value>True</value>
   </data>
   <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-2, 9</value>
+    <value>-2, 7</value>
+  </data>
+  <data name="label5.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 17</value>
+    <value>28, 13</value>
   </data>
   <data name="label5.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -210,10 +220,13 @@
     <value>Microsoft Sans Serif, 13.8pt</value>
   </data>
   <data name="UsernameTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>125, 334</value>
+    <value>94, 271</value>
+  </data>
+  <data name="UsernameTextBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="UsernameTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>304, 34</value>
+    <value>229, 28</value>
   </data>
   <data name="UsernameTextBox.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -237,10 +250,13 @@
     <value>Microsoft Sans Serif, 13.8pt</value>
   </data>
   <data name="PasswordTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>125, 374</value>
+    <value>94, 304</value>
+  </data>
+  <data name="PasswordTextBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="PasswordTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>304, 34</value>
+    <value>229, 28</value>
   </data>
   <data name="PasswordTextBox.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -264,10 +280,13 @@
     <value>Microsoft Sans Serif, 13.8pt</value>
   </data>
   <data name="LoginButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>125, 426</value>
+    <value>94, 346</value>
+  </data>
+  <data name="LoginButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="LoginButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>304, 53</value>
+    <value>228, 43</value>
   </data>
   <data name="LoginButton.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -288,12 +307,14 @@
     <value>4</value>
   </data>
   <data name="pictureBox2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>125, 525</value>
+    <value>94, 427</value>
+  </data>
+  <data name="pictureBox2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="pictureBox2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>304, 53</value>
+    <value>228, 43</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="pictureBox2.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>Zoom</value>
   </data>
@@ -313,10 +334,13 @@
     <value>2</value>
   </data>
   <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>494, 9</value>
+    <value>370, 7</value>
+  </data>
+  <data name="pictureBox1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="pictureBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>33, 38</value>
+    <value>25, 31</value>
   </data>
   <data name="pictureBox1.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>Zoom</value>
@@ -343,10 +367,13 @@
     <value>Segoe Print, 12pt</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>299, 676</value>
+    <value>224, 549</value>
+  </data>
+  <data name="label1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>216, 35</value>
+    <value>170, 28</value>
   </data>
   <data name="label1.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -373,10 +400,13 @@
     <value>Segoe Print, 12pt</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 676</value>
+    <value>12, 549</value>
+  </data>
+  <data name="label2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>190, 35</value>
+    <value>153, 28</value>
   </data>
   <data name="label2.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -400,7 +430,7 @@
     <value>True</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>8, 16</value>
+    <value>6, 13</value>
   </data>
   <data name="$this.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -409,7 +439,10 @@
     <value>Center</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>539, 720</value>
+    <value>404, 585</value>
+  </data>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>

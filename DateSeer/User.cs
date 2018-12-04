@@ -98,6 +98,36 @@ namespace DateSeer
                 File.Create(path);
             }
         }
+        public void SearchLikes(User MainUser,User Usern)
+        {
+            GetUserInfo get = new GetUserInfo();
+
+            get.Searches(MainUser,Usern);
+
+            GetUserInfo getz = new GetUserInfo(get.getId(), 0);
+            this.username = getz.getUsername();
+            this.name = getz.getName();
+            this.email = getz.getEmail();
+            this.gender = getz.getGender();
+            this.image = getz.getImage();
+            this.Id = getz.getId();
+        }
+        public void MatchesSearch(User MainUser,int number)
+        {
+            
+                GetUserInfo get = new GetUserInfo();
+
+                get.SearchMatch(MainUser, number);
+
+                GetUserInfo getz = new GetUserInfo(get.getId(), 0);
+                this.username = getz.getUsername();
+                this.name = getz.getName();
+                this.email = getz.getEmail();
+                this.gender = getz.getGender();
+                this.image = getz.getImage();
+                this.Id = getz.getId();
+           
+        }
         public int getId()
         {
             return Id;

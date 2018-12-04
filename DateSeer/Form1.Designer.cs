@@ -47,7 +47,6 @@
             this.UserName.Size = new System.Drawing.Size(167, 44);
             this.UserName.TabIndex = 0;
             this.UserName.Text = "UserName";
-            this.UserName.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -80,7 +79,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_1);
             // 
             // pictureBox2
             // 
@@ -122,7 +120,6 @@
             this.Name = "Options";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
@@ -131,12 +128,11 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label UserName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.Label UserName;
+        public System.Windows.Forms.PictureBox pictureBox1;
     }
 }
